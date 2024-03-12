@@ -21,7 +21,7 @@ public class InsertionSortTest extends SortTest {
 
     @Test
     public void testNumberOfComparisons() {
-        double[] input = {5, 3, 1, 4, 2};
+        double[] input = {5, 2, 4, 1, 3};
         sort.sort(input);
         Assertions.assertEquals(7, sort.getNumberOfComparisons());
     }

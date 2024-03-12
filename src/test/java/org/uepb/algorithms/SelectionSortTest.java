@@ -21,6 +21,7 @@ public class SelectionSortTest extends SortTest {
 
     @Test
     public void testNumberOfComparisons() {
+        // numberOfComparison is (n*(n-1)) / 2
         double[] input = {5, 3, 1, 4, 2};
         sort.sort(input);
         Assertions.assertEquals(10, sort.getNumberOfComparisons());

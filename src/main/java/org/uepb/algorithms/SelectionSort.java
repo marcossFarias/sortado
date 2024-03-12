@@ -7,7 +7,6 @@ public class SelectionSort extends SortAlgorithm {
             int index = i;
 
             for (int j = i + 1; j < array.length; j++) {
-                // numberOfComparison is (n*(n-1)) / 2
                 numberOfComparisons = numberOfComparisons + 1;
                 if (array[j] < array[index]) {
                     index = j;
