@@ -9,19 +9,19 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptException;
 
 public class SortingComparisonR {
-    public static void gen(int[] numbers) throws ScriptException {
+    public static void gen(double[] numbers) throws ScriptException {
         BubbleSort bubbleSort = new BubbleSort();
-        int[] bubbleSort_array = bubbleSort.sort(numbers.clone());
+        double[] bubbleSort_array = bubbleSort.sort(numbers.clone());
         int bubbleSortComparisons = bubbleSort.getNumberOfComparisons();
         int bubbleSortSwaps = bubbleSort.getNumberOfSwaps();
 
         InsertionSort insertionSort = new InsertionSort();
-        int[] insertionSort_array = insertionSort.sort(numbers.clone());
+        double[] insertionSort_array = insertionSort.sort(numbers.clone());
         int insertionSortComparisons = insertionSort.getNumberOfComparisons();
         int insertionSortSwaps = insertionSort.getNumberOfSwaps();
 
         SelectionSort selectionSort = new SelectionSort();
-        int[] selectionSort_array = selectionSort.sort(numbers.clone());
+        double[] selectionSort_array = selectionSort.sort(numbers.clone());
         int selectionSortComparisons = selectionSort.getNumberOfComparisons();
         int selectionSortSwaps = selectionSort.getNumberOfSwaps();
 

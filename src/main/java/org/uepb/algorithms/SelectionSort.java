@@ -2,7 +2,7 @@ package org.uepb.algorithms;
 
 public class SelectionSort extends SortAlgorithm {
     @Override
-    public int[] sort(int[] array) {
+    public double[] sort(double[] array) {
         for (int i = 0; i < array.length - 1; i++) {
             int index = i;
 
@@ -13,7 +13,7 @@ public class SelectionSort extends SortAlgorithm {
                 }
             }
             if (index != i) {
-                int smallerNumber = array[index];
+                double smallerNumber = array[index];
                 array[index] = array[i];
                 array[i] = smallerNumber;
                 numberOfSwaps = numberOfSwaps + 1;

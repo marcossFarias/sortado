@@ -8,7 +8,7 @@ import org.uepb.algorithms.SortAlgorithm;
 import java.util.Arrays;
 
 public class SortingComparisonTerminal {
-    public static void compareSortingAlgorithms(int[] array) {
+    public static void compareSortingAlgorithms(double[] array) {
         SortAlgorithm[] algorithms = {
                 new BubbleSort(),
                 new InsertionSort(),
@@ -16,8 +16,8 @@ public class SortingComparisonTerminal {
         };
 
         for (SortAlgorithm algorithm : algorithms) {
-            int[] arrayCopy = array.clone();
-            int[] sortedArray = algorithm.sort(arrayCopy);
+            double[] arrayCopy = array.clone();
+            double[] sortedArray = algorithm.sort(arrayCopy);
             int numberOfSwaps = algorithm.getNumberOfSwaps();
             int numberOfComparisons = algorithm.getNumberOfComparisons();
             long elapsedTime = algorithm.executionTime(arrayCopy);

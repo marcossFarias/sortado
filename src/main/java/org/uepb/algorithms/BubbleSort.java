@@ -2,9 +2,9 @@ package org.uepb.algorithms;
 
 public class BubbleSort extends SortAlgorithm {
     @Override
-    public int[] sort(int[] array) {
+    public double[] sort(double[] array) {
         int n = array.length;
-        int temp = 0;
+        double temp = 0;
 
         for(int i=0; i < n; i++) {
             for(int j=1; j < (n-i); j++) {

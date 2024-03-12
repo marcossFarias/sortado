@@ -6,6 +6,7 @@ public abstract class SortAlgorithm {
     protected int numberOfSwaps;
 
     public SortAlgorithm() {
+        this.numberOfComparisons = 0;
         this.numberOfSwaps = 0;
     }
 
@@ -17,9 +18,9 @@ public abstract class SortAlgorithm {
         return numberOfSwaps;
     }
 
-    public abstract int[] sort(int[] array);
+    public abstract double[] sort(double[] array);
 
-    public long executionTime(int[] array) {
+    public long executionTime(double[] array) {
         long startTime = System.nanoTime();
         sort(array);
         long endTime = System.nanoTime();
