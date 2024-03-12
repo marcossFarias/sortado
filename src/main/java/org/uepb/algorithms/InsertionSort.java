@@ -9,7 +9,7 @@ public class InsertionSort extends SortAlgorithm {
             double key = array[i];
             int j = i - 1;
 
-            while ((j >= 0) && (array[j] > key || j == 0)) {
+            while ((j >= 0) && (array[j] > key)) {
                 numberOfComparisons = numberOfComparisons + 1;
 
                 if (array[j] > key) {
