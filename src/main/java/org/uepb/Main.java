@@ -14,7 +14,7 @@ import javax.script.ScriptException;
 
 public class Main {
     public static void main(String[] args) {
-        double[] numbers = {1, 48, 29, 47, 15, -1, 41, 11, 19, 4, 27, 23, 12, 45, 44, 34, 25, 41, 20};
+        double[] numbers = {10, 48, 29, 47, 15, 3, 41, -2, -45, 11, 19, 4, 27, 27, 23, 12, 45, 44, 34, 25, 41, 20};
         SortingComparisonTerminal.compareSortingAlgorithms(numbers);
 
         try {
