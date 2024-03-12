@@ -18,8 +18,8 @@ public class SortingComparisonTerminal {
         for (SortAlgorithm algorithm : algorithms) {
             double[] arrayCopy = array.clone();
             double[] sortedArray = algorithm.sort(arrayCopy);
-            int numberOfSwaps = algorithm.getNumberOfSwaps();
-            int numberOfComparisons = algorithm.getNumberOfComparisons();
+            long numberOfSwaps = algorithm.getNumberOfSwaps();
+            long numberOfComparisons = algorithm.getNumberOfComparisons();
             long elapsedTime = algorithm.executionTime(arrayCopy);
             System.out.printf("%s:\n\tNumber of swaps = %d\tNumber of comparisons = %d\tElapsed time = %d\n\tOriginal Array = %s\n\tSorted Array = %s\n",
                     algorithm.getClass().getSimpleName(),

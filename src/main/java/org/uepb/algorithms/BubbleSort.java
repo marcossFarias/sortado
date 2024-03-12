@@ -8,13 +8,13 @@ public class BubbleSort extends SortAlgorithm {
 
         for(int i=0; i < n; i++) {
             for(int j=1; j < (n-i); j++) {
-                numberOfComparisons = numberOfComparisons + 1;
+                incrementComparisons();
 
                 if(array[j-1] > array[j]) {
                     temp = array[j-1];
                     array[j-1] = array[j];
                     array[j] = temp;
-                    numberOfSwaps = numberOfSwaps + 1;
+                    incrementSwaps();
                 }
             }
         }

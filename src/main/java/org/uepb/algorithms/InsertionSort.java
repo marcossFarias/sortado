@@ -10,11 +10,11 @@ public class InsertionSort extends SortAlgorithm {
             int j = i - 1;
 
             while ((j >= 0) && (array[j] > key)) {
-                numberOfComparisons = numberOfComparisons + 1;
+                incrementComparisons();
 
                 if (array[j] > key) {
                     array[j + 1] = array[j];
-                    numberOfSwaps = numberOfSwaps + 1;
+                    incrementSwaps();
                 }
 
                 j = j -1;

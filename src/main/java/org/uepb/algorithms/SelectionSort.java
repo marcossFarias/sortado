@@ -7,7 +7,7 @@ public class SelectionSort extends SortAlgorithm {
             int index = i;
 
             for (int j = i + 1; j < array.length; j++) {
-                numberOfComparisons = numberOfComparisons + 1;
+                incrementComparisons();
                 if (array[j] < array[index]) {
                     index = j;
                 }
@@ -17,7 +17,7 @@ public class SelectionSort extends SortAlgorithm {
                 double smallerNumber = array[index];
                 array[index] = array[i];
                 array[i] = smallerNumber;
-                numberOfSwaps = numberOfSwaps + 1;
+                incrementSwaps();
             }
         }
         return array;

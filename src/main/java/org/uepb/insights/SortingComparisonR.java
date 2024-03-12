@@ -12,18 +12,18 @@ public class SortingComparisonR {
     public static void gen(double[] numbers) throws ScriptException {
         BubbleSort bubbleSort = new BubbleSort();
         double[] bubbleSort_array = bubbleSort.sort(numbers.clone());
-        int bubbleSortComparisons = bubbleSort.getNumberOfComparisons();
-        int bubbleSortSwaps = bubbleSort.getNumberOfSwaps();
+        long bubbleSortComparisons = bubbleSort.getNumberOfComparisons();
+        long bubbleSortSwaps = bubbleSort.getNumberOfSwaps();
 
         InsertionSort insertionSort = new InsertionSort();
         double[] insertionSort_array = insertionSort.sort(numbers.clone());
-        int insertionSortComparisons = insertionSort.getNumberOfComparisons();
-        int insertionSortSwaps = insertionSort.getNumberOfSwaps();
+        long insertionSortComparisons = insertionSort.getNumberOfComparisons();
+        long insertionSortSwaps = insertionSort.getNumberOfSwaps();
 
         SelectionSort selectionSort = new SelectionSort();
         double[] selectionSort_array = selectionSort.sort(numbers.clone());
-        int selectionSortComparisons = selectionSort.getNumberOfComparisons();
-        int selectionSortSwaps = selectionSort.getNumberOfSwaps();
+        long selectionSortComparisons = selectionSort.getNumberOfComparisons();
+        long selectionSortSwaps = selectionSort.getNumberOfSwaps();
 
         RenjinScriptEngineFactory factory = new RenjinScriptEngineFactory();
         ScriptEngine engine = factory.getScriptEngine();

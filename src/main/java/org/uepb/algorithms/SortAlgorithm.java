@@ -1,21 +1,20 @@
 package org.uepb.algorithms;
 
-public abstract class SortAlgorithm {
-    protected int numberOfComparisons;
+import java.util.concurrent.atomic.LongAdder;
 
-    protected int numberOfSwaps;
+public abstract class SortAlgorithm {
+    protected final LongAdder numberOfComparisons = new LongAdder();
+    protected final LongAdder numberOfSwaps = new LongAdder();
 
     public SortAlgorithm() {
-        this.numberOfComparisons = 0;
-        this.numberOfSwaps = 0;
     }
 
-    public int getNumberOfComparisons() {
-        return numberOfComparisons;
+    public long getNumberOfComparisons() {
+        return numberOfComparisons.longValue();
     }
 
-    public int getNumberOfSwaps() {
-        return numberOfSwaps;
+    public long getNumberOfSwaps() {
+        return numberOfSwaps.longValue();
     }
 
     public abstract double[] sort(double[] array);
@@ -26,5 +25,13 @@ public abstract class SortAlgorithm {
         long endTime = System.nanoTime();
 
         return endTime - startTime;
+    }
+
+    protected void incrementComparisons() {
+        numberOfComparisons.increment();
+    }
+
+    protected void incrementSwaps() {
+        numberOfSwaps.increment();
     }
 }
