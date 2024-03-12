@@ -21,6 +21,7 @@ public class InsertionSort extends SortAlgorithm {
             }
 
             array[j+1] = key;
+            //numberOfSwaps = numberOfSwaps + 1;
         }
         return array;
     }
