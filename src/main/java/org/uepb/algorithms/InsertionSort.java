@@ -3,21 +3,25 @@ package org.uepb.algorithms;
 public class InsertionSort extends SortAlgorithm {
     @Override
     public double[] sort(double[] array) {
-        int n = array.length;
+        int array_length = array.length;
 
-        for (int j = 1; j < n; j++) {
-            double key = array[j];
-            int i = j-1;
-            while ( (i > -1) && ( array [i] > key ) ) {
-                array [i+1] = array [i];
-                i--;
+        for (int i = 1; i < array_length; i++) {
+            double key = array[i];
+            int j = i - 1;
 
+            while ((j >= 0) && (array[j] > key || j == 0)) {
                 numberOfComparisons = numberOfComparisons + 1;
-                numberOfSwaps = numberOfSwaps + 1;
-            }
-            array[i+1] = key;
-        }
 
+                if (array[j] > key) {
+                    array[j + 1] = array[j];
+                    numberOfSwaps = numberOfSwaps + 1;
+                }
+
+                j = j -1;
+            }
+
+            array[j+1] = key;
+        }
         return array;
     }
 }
