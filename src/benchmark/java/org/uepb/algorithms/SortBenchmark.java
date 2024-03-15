@@ -8,7 +8,11 @@ import java.util.concurrent.TimeUnit;
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
 public class SortBenchmark {
-    @Param({"1000", "10000", "100000"})
+    @Param({
+            "100",   // 1,000
+            //"10000",  // 10,000
+            //"100000"  // 100,000
+    })
     private int ARRAY_SIZE;
 
     @Setup
