@@ -24,9 +24,9 @@ You have three options to obtain the code for the Sortado project:
 - Clone the Repository Using HTTPS or GitHub CLI:
   - Open your terminal or command prompt.
   - To clone the repository using HTTPS, run the following command:
-  - `ddddddd`
+  - `https://github.com/marcossFarias/sortado.git`
   - To clone the repository using GitHub CLI, run the following command: 
-  - `ddd`
+  - `gh repo clone marcossFarias/sortado`
   - Either options will create a local copy of the repository on your machine.
 
 
