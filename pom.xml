@@ -6,7 +6,7 @@
 
     <groupId>org.uepb</groupId>
     <artifactId>Sortado</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.2-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -15,33 +15,33 @@
     </properties>
 
     <repositories>
+        <!-- This repository is being used for the Renjin dependency. -->
         <repository>
             <id>bedatadriven</id>
             <name>bedatadriven public repo</name>
             <url>https://nexus.bedatadriven.com/content/groups/public/</url>
         </repository>
+
     </repositories>
 
     <dependencies>
+        <!-- JUnit Jupiter API for writing tests and extensions in JUnit 5. -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>5.10.0</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>RELEASE</version>
-            <scope>test</scope>
-        </dependency>
 
+        <!-- JMH Core is a framework for benchmarking Java code. -->
         <dependency>
             <groupId>org.openjdk.jmh</groupId>
             <artifactId>jmh-core</artifactId>
             <version>1.37</version>
             <scope>compile</scope>
         </dependency>
+
+        <!-- JMH Generator is a tool for generating benchmark code for JMH. -->
         <dependency>
             <groupId>org.openjdk.jmh</groupId>
             <artifactId>jmh-generator-annprocess</artifactId>
@@ -49,17 +49,22 @@
             <scope>compile</scope>
         </dependency>
 
+        <!-- Renjin is an R interpreter for the JVM. -->
+        <!-- https://nexus.bedatadriven.com/content/groups/public/org/renjin/renjin-script-engine/ -->
         <dependency>
             <groupId>org.renjin</groupId>
             <artifactId>renjin-script-engine</artifactId>
-            <version>RELEASE</version>
+            <version>3.5-beta76</version>
         </dependency>
 
+        <!-- Guava is a set of Java libraries that includes collection utilities, caching, primitives support, concu
+        rrency, common annotations and much more. -->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>33.0.0-jre</version>
         </dependency>
+
     </dependencies>
 
 </project>
