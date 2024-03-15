@@ -10,8 +10,8 @@ import java.util.concurrent.TimeUnit;
 public class SortBenchmark {
     @Param({
             "100",   // 1,000
-            //"10000",  // 10,000
-            //"100000"  // 100,000
+            "10000",  // 10,000
+            "100000"  // 100,000
     })
     private int ARRAY_SIZE;
 
