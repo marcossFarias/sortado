@@ -16,7 +16,7 @@ public class SelectionSortTest extends SortTest {
     public void testNumberOfSwaps() {
         double[] input = {5, 3, 1, 4, 2};
         sort.sort(input);
-        Assertions.assertEquals(3, sort.getNumberOfSwaps());
+        Assertions.assertEquals(4, sort.getNumberOfSwaps());
     }
 
     @Test

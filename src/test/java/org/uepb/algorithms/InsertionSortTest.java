@@ -23,6 +23,6 @@ public class InsertionSortTest extends SortTest {
     public void testNumberOfComparisons() {
         double[] input = {5, 2, 4, 1, 3};
         sort.sort(input);
-        Assertions.assertEquals(7, sort.getNumberOfComparisons());
+        Assertions.assertEquals(9, sort.getNumberOfComparisons());
     }
 }
