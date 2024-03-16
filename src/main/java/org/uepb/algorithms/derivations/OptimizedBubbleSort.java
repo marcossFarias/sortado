@@ -1,4 +1,6 @@
-package org.uepb.algorithms;
+package org.uepb.algorithms.derivations;
+
+import org.uepb.algorithms.SortAlgorithm;
 
 public class OptimizedBubbleSort extends SortAlgorithm {
     @Override

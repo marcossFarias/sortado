@@ -1,6 +1,8 @@
 package org.uepb.algorithms;
 
 import org.openjdk.jmh.annotations.*;
+import org.uepb.algorithms.derivations.OptimizedBubbleSort;
+import org.uepb.algorithms.derivations.OptimizedSelectionSort;
 
 import java.util.concurrent.TimeUnit;
 
@@ -27,18 +29,30 @@ public class SortBenchmark {
         BubbleSort bubbleSort = new BubbleSort();
         return bubbleSort.sort(inputArray.clone());
     }
-
     @Benchmark
-    public double[] benchmarkQuickSort() {
-        InsertionSort quickSort = new InsertionSort();
-        return quickSort.sort(inputArray.clone());
+    public double[] benchmarkOptimizedBubbleSort() {
+        OptimizedBubbleSort optimizedBubbleSort = new OptimizedBubbleSort();
+        return optimizedBubbleSort.sort(inputArray.clone());
     }
 
     @Benchmark
-    public double[] benchmarkMergeSort() {
-        SelectionSort mergeSort = new SelectionSort();
-        return mergeSort.sort(inputArray.clone());
+    public double[] benchmarkInsertionSort() {
+        InsertionSort insertionSort = new InsertionSort();
+        return insertionSort.sort(inputArray.clone());
     }
+
+    @Benchmark
+    public double[] benchmarkSelectionSort() {
+        SelectionSort selectionSort = new SelectionSort();
+        return selectionSort.sort(inputArray.clone());
+    }
+    @Benchmark
+    public double[] benchmarkOptimizedSelectionSort() {
+        OptimizedSelectionSort optimizedSelectionSort = new OptimizedSelectionSort();
+        return optimizedSelectionSort.sort(inputArray.clone());
+    }
+
+
 
     private double[] generateRandomArray(int size) {
         double[] array = new double[size];

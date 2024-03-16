@@ -1,6 +1,8 @@
 package org.uepb.insights;
 
 import org.uepb.algorithms.*;
+import org.uepb.algorithms.derivations.OptimizedBubbleSort;
+import org.uepb.algorithms.derivations.OptimizedSelectionSort;
 
 import java.util.Arrays;
 
@@ -11,6 +13,7 @@ public class SortingComparisonTerminal {
                 new OptimizedBubbleSort(),
                 new InsertionSort(),
                 new SelectionSort(),
+                new OptimizedSelectionSort(),
         };
 
         for (SortAlgorithm algorithm : algorithms) {
