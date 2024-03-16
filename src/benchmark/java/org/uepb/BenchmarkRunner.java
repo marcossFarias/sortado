@@ -4,10 +4,16 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class BenchmarkRunner {
     public static void main(String[] args) throws Exception {
-        String fileName = "BenchmarkRunner_output.txt";
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy_MM_dd_HH_mm_ss");
+        LocalDateTime now = LocalDateTime.now();
+
+        String fileName = "BenchmarkRunner_output" + dtf.format(now) + ".txt";
+
         FileOutputStream outputFile = new FileOutputStream(fileName);
         PrintStream fileStream = new PrintStream(outputFile);
         PrintStream consoleStream = System.out;
