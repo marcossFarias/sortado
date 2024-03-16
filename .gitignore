@@ -1,7 +1,9 @@
 *.png
 *.pdf
 *.csv
+*.cvs#
 *.txt
+
 
 target/
 !.mvn/wrapper/maven-wrapper.jar
