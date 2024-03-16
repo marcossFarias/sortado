@@ -4,16 +4,18 @@ public class BubbleSort extends SortAlgorithm {
     @Override
     public double[] sort(double[] array) {
         int n = array.length;
-        double temp = 0;
 
-        for(int i=0; i < n; i++) {
-            for(int j=1; j < (n-i); j++) {
+        // Outer loop: iterate over each element in the array
+        for(int i=0; i < (n - 1); i++) {
+            // Inner loop: compare adjacent elements in the array
+            // The (n - i - 1) ensures we don't compare elements that are already sorted
+
+            for(int j=0; j < (n - i - 1); j++) {
                 incrementComparisons();
-
-                if(array[j-1] > array[j]) {
-                    temp = array[j-1];
-                    array[j-1] = array[j];
-                    array[j] = temp;
+                if(array[j] > array[j+1]) {
+                    double temp = array[j];
+                    array[j] = array[j+1];
+                    array[j+1] = temp;
                     incrementSwaps();
                 }
             }
