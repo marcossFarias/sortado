@@ -5,6 +5,8 @@ import org.uepb.insights.SortingComparisonTerminal;
 
 import javax.script.ScriptException;
 
+import static org.uepb.utils.ArrayUtils.generateRandomArray;
+
 /*
 * https://fastercapital.com/content/Comparisons-and-Swaps--Understanding-Sortinoratio-Operations.html
 * https://stackoverflow.com/questions/42810832/number-of-swaps-and-comparisons-in-bubble-selection-insertion-and-quick-sorts
@@ -35,11 +37,5 @@ public class Main {
         }
     }
 
-    private static double[] generateRandomArray(int size) {
-        double[] array = new double[size];
-        for (int i = 0; i < size; i++) {
-            array[i] = Math.random();
-        }
-        return array;
-    }
+
 }

@@ -6,6 +6,8 @@ import org.uepb.algorithms.derivations.OptimizedSelectionSort;
 
 import java.util.concurrent.TimeUnit;
 
+import static org.uepb.utils.ArrayUtils.generateRandomArray;
+
 @State(Scope.Benchmark)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
@@ -50,15 +52,5 @@ public class SortBenchmark {
     public double[] benchmarkOptimizedSelectionSort() {
         OptimizedSelectionSort optimizedSelectionSort = new OptimizedSelectionSort();
         return optimizedSelectionSort.sort(inputArray.clone());
-    }
-
-
-
-    private double[] generateRandomArray(int size) {
-        double[] array = new double[size];
-        for (int i = 0; i < size; i++) {
-            array[i] = Math.random();
-        }
-        return array;
     }
 }
