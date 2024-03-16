@@ -14,7 +14,7 @@ Ensure you have the following installed on your system:
 - Intellij IDEA
 
 ### Get the code
-You have three options to obtain the code for the Sortado project:
+You have two ways to obtain the code for the Sortado project:
 - Download the Zip File
   - Visit the Sortado GitHub repository.
   - Click on the “Code” button above the list of files.
