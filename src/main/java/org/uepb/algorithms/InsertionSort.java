@@ -19,6 +19,7 @@ public class InsertionSort extends SortAlgorithm {
             }
             // Insert the current element in its correct position
             array[i+1] = n;
+
             if (i >= 0) {
                 // Accounts for the last failed comparison in the while loop,
                 // either i is no longer >= 0 or array[i] is no longer > key.

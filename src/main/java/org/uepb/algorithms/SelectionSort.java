@@ -3,22 +3,24 @@ package org.uepb.algorithms;
 public class SelectionSort extends SortAlgorithm {
     @Override
     public double[] sort(double[] array) {
-        for (int i = 0; i < array.length - 1; i++) {
-            int index = i;
+        int n = array.length;
 
-            for (int j = i + 1; j < array.length; j++) {
+        for (int i = 0; i < n - 1; i++) {
+            int min_idx = i; // Assume the first element as minimum
+
+            for (int j = i + 1; j < n; j++) {
                 incrementComparisons();
-                if (array[j] < array[index]) {
-                    index = j;
+                if (array[j] < array[min_idx]) {
+                    // If the current element is smaller than the minimum, update the minimum
+                    min_idx = j;
                 }
             }
 
-            if (index != i) {
-                double smallerNumber = array[index];
-                array[index] = array[i];
-                array[i] = smallerNumber;
-                incrementSwaps();
-            }
+            // Swap the found minimum element with the first element
+            double smallerNumber = array[min_idx];
+            array[min_idx] = array[i];
+            array[i] = smallerNumber;
+            incrementSwaps();
         }
         return array;
     }
