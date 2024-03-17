@@ -16,7 +16,7 @@ public class SortingController {
         for (SortingAlgorithm algorithm : algorithms) {
             double[] arrayCopy = array.clone();
             double[] sortedArray = algorithm.sort(arrayCopy);
-            view.displayResults(algorithm, array, sortedArray);
+            view.displaySimplifiedResults(algorithm, array, sortedArray);
         }
     }
 }

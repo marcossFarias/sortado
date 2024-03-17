@@ -15,8 +15,8 @@ import static org.uepb.utils.ArrayUtils.generateRandomArray;
 public class SelectionSortBenchmark {
     @Param({
             "100",   // 1,000
-            //"10000",  // 10,000
-            //"100000"  // 100,000
+            "10000",  // 10,000
+            "100000"  // 100,000
     })
     private int ARRAY_SIZE;
 
