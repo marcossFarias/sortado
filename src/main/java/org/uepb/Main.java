@@ -23,8 +23,19 @@ public class Main {
 
         SortingController controller = new SortingController(algorithms, new SortingComparisonTerminal());
 
-        //double[] array = {8, 5, 9, 2, 6, 3};
-        double[] array = generateRandomArray(50);
-        controller.compareAlgorithms(array);
+        System.out.println("Array Size: 100");
+        double[] array100 = generateRandomArray(100);
+        controller.compareAlgorithms(array100);
+        System.out.print("\n\n\n");
+
+        System.out.println("Array Size: 10,000");
+        double[] array10000 = generateRandomArray(10000);
+        controller.compareAlgorithms(array10000);
+        System.out.print("\n\n\n");
+
+        System.out.println("Array Size: 100,000");
+        double[] array100000 = generateRandomArray(100000);
+        controller.compareAlgorithms(array100000);
+        System.out.print("\n\n\n");
     }
 }
