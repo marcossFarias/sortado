@@ -45,7 +45,17 @@ Our testing environment is a fresh installation of Pop!_OS, the latest version, 
 
 
 ## Usage
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Currently, the code is designed for basic usage.
+In the main function, we generate a collection of arrays with different sizes.
+These arrays are then used as parameters for various sorting algorithms.
+This process provides a general understanding of the algorithms’ behavior.
+
+For more detailed time metrics, navigate to the ‘benchmarks’ directory and execute the ‘Benchmark Runner’ class.
+Please note, if you wish to run individual benchmarks, you will need to install the JMH extension for IntelliJ.
+
+Additionally, the ‘Benchmark Runner’ logs all the terminal command output to a file.
+It also generates a CSV file with the final metrics.
+This allows you to easily access and analyze the benchmark results at any time.
 
 
 
