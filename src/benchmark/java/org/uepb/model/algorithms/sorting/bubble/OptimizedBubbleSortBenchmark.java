@@ -7,8 +7,11 @@ import java.util.concurrent.TimeUnit;
 import static org.uepb.utils.ArrayUtils.generateRandomArray;
 
 @State(Scope.Benchmark)
+@Fork(value = 3)
+@Warmup(iterations = 3)
+@Timeout(time = 10)
 @BenchmarkMode(Mode.AverageTime)
-@OutputTimeUnit(TimeUnit.MILLISECONDS)
+@OutputTimeUnit(TimeUnit.SECONDS)
 public class OptimizedBubbleSortBenchmark {
     @Param({
             "100",   // 1,000
