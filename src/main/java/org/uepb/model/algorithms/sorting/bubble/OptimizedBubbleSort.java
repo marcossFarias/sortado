@@ -1,8 +1,8 @@
-package org.uepb.algorithms.derivations;
+package org.uepb.model.algorithms.sorting.bubble;
 
-import org.uepb.algorithms.SortAlgorithm;
+import org.uepb.model.algorithms.sorting.SortingAlgorithm;
 
-public class OptimizedBubbleSort extends SortAlgorithm {
+public class OptimizedBubbleSort extends SortingAlgorithm {
     @Override
     public double[] sort(double[] array) {
         int n = array.length;

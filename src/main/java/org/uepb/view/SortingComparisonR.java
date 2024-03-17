@@ -1,9 +1,9 @@
-package org.uepb.insights;
+package org.uepb.view;
 
 import org.renjin.script.RenjinScriptEngineFactory;
-import org.uepb.algorithms.BubbleSort;
-import org.uepb.algorithms.InsertionSort;
-import org.uepb.algorithms.SelectionSort;
+import org.uepb.model.algorithms.sorting.bubble.BubbleSort;
+import org.uepb.model.algorithms.sorting.insertion.InsertionSort;
+import org.uepb.model.algorithms.sorting.selection.SelectionSort;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptException;

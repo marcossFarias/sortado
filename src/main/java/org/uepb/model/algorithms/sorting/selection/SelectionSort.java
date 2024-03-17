@@ -1,6 +1,8 @@
-package org.uepb.algorithms;
+package org.uepb.model.algorithms.sorting.selection;
 
-public class SelectionSort extends SortAlgorithm {
+import org.uepb.model.algorithms.sorting.SortingAlgorithm;
+
+public class SelectionSort extends SortingAlgorithm {
     @Override
     public double[] sort(double[] array) {
         int n = array.length;

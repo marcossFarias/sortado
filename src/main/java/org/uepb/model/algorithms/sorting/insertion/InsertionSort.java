@@ -1,6 +1,8 @@
-package org.uepb.algorithms;
+package org.uepb.model.algorithms.sorting.insertion;
 
-public class InsertionSort extends SortAlgorithm {
+import org.uepb.model.algorithms.sorting.SortingAlgorithm;
+
+public class InsertionSort extends SortingAlgorithm {
     @Override
     public double[] sort(double[] array) {
         // Start from the second element of the array

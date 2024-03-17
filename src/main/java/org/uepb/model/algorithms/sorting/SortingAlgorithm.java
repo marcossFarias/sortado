@@ -1,12 +1,12 @@
-package org.uepb.algorithms;
+package org.uepb.model.algorithms.sorting;
 
 import java.util.concurrent.atomic.LongAdder;
 
-public abstract class SortAlgorithm {
+public abstract class SortingAlgorithm {
     protected final LongAdder numberOfComparisons = new LongAdder();
     protected final LongAdder numberOfSwaps = new LongAdder();
 
-    public SortAlgorithm() {
+    public SortingAlgorithm() {
     }
 
     public long getNumberOfComparisons() {

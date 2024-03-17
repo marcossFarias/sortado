@@ -1,14 +1,17 @@
-package org.uepb.insights;
+package org.uepb.view;
 
-import org.uepb.algorithms.*;
-import org.uepb.algorithms.derivations.OptimizedBubbleSort;
-import org.uepb.algorithms.derivations.OptimizedSelectionSort;
+import org.uepb.model.algorithms.sorting.bubble.OptimizedBubbleSort;
+import org.uepb.model.algorithms.sorting.insertion.InsertionSort;
+import org.uepb.model.algorithms.sorting.selection.OptimizedSelectionSort;
+import org.uepb.model.algorithms.sorting.SortingAlgorithm;
+import org.uepb.model.algorithms.sorting.bubble.BubbleSort;
+import org.uepb.model.algorithms.sorting.selection.SelectionSort;
 
 import java.util.Arrays;
 
 public class SortingComparisonTerminal {
     public static void compareSortingAlgorithmsVerbose(double[] array) {
-        SortAlgorithm[] algorithms = {
+        SortingAlgorithm[] algorithms = {
                 new BubbleSort(),
                 new OptimizedBubbleSort(),
                 new InsertionSort(),
@@ -16,7 +19,7 @@ public class SortingComparisonTerminal {
                 new OptimizedSelectionSort(),
         };
 
-        for (SortAlgorithm algorithm : algorithms) {
+        for (SortingAlgorithm algorithm : algorithms) {
             double[] arrayCopy = array.clone();
             double[] sortedArray = algorithm.sort(arrayCopy);
             long numberOfSwaps = algorithm.getNumberOfSwaps();
@@ -33,7 +36,7 @@ public class SortingComparisonTerminal {
     }
 
     public static void compareSortingAlgorithms(double[] array) {
-        SortAlgorithm[] algorithms = {
+        SortingAlgorithm[] algorithms = {
                 new BubbleSort(),
                 new OptimizedBubbleSort(),
                 new InsertionSort(),
@@ -41,7 +44,7 @@ public class SortingComparisonTerminal {
                 new OptimizedSelectionSort(),
         };
 
-        for (SortAlgorithm algorithm : algorithms) {
+        for (SortingAlgorithm algorithm : algorithms) {
             double[] arrayCopy = array.clone();
             double[] sortedArray = algorithm.sort(arrayCopy);
             long numberOfSwaps = algorithm.getNumberOfSwaps();

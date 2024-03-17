@@ -1,4 +1,4 @@
-package org.uepb.algorithms;
+package org.uepb.model.algorithms.sorting;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,7 +9,7 @@ import java.util.Random;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public abstract class SortTest {
-    protected SortAlgorithm sort;
+    protected SortingAlgorithm sort;
     protected Random random;
 
     @BeforeEach

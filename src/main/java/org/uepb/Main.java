@@ -1,9 +1,6 @@
 package org.uepb;
 
-import org.uepb.insights.SortingComparisonR;
-import org.uepb.insights.SortingComparisonTerminal;
-
-import javax.script.ScriptException;
+import org.uepb.view.SortingComparisonTerminal;
 
 import static org.uepb.utils.ArrayUtils.generateRandomArray;
 
