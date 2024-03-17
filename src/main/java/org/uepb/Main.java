@@ -1,32 +1,30 @@
 package org.uepb;
 
-import org.uepb.view.SortingComparisonR;
-import org.uepb.view.SortingComparisonTerminal;
-
-import javax.script.ScriptException;
+import org.uepb.controller.algorithms.sorting.SortingController;
+import org.uepb.model.algorithms.sorting.SortingAlgorithm;
+import org.uepb.model.algorithms.sorting.bubble.BubbleSort;
+import org.uepb.model.algorithms.sorting.bubble.OptimizedBubbleSort;
+import org.uepb.model.algorithms.sorting.insertion.InsertionSort;
+import org.uepb.model.algorithms.sorting.selection.OptimizedSelectionSort;
+import org.uepb.model.algorithms.sorting.selection.SelectionSort;
+import org.uepb.view.algorithms.sorting.SortingComparisonTerminal;
 
 import static org.uepb.utils.ArrayUtils.generateRandomArray;
 
 public class Main {
     public static void main(String[] args) {
-        //double[] numbers = {10, 48, 29, 47, 15.4, 3, -2, -45, 11, 19, 4, 27, -27.43, 23.93, 12, 44.345, 34, 25, 41, 20};
+        SortingAlgorithm[] algorithms = {
+                new BubbleSort(),
+                new OptimizedBubbleSort(),
+                new InsertionSort(),
+                new SelectionSort(),
+                new OptimizedSelectionSort(),
+        };
 
-        double[] numbers = {8, 5, 9, 2, 6, 3};
+        SortingController controller = new SortingController(algorithms, new SortingComparisonTerminal());
 
-        SortingComparisonTerminal.compareSortingAlgorithms(numbers);
-
-        try {
-            SortingComparisonR.gen(numbers);
-        } catch (ScriptException e) {
-            throw new RuntimeException(e);
-        }
-
-        int[] sizes = {10, 20, 30};
-        for (int size : sizes) {
-            double[] arrays = generateRandomArray(size);
-            SortingComparisonTerminal.compareSortingAlgorithms(arrays);
-        }
+        //double[] array = {8, 5, 9, 2, 6, 3};
+        double[] array = generateRandomArray(50);
+        controller.compareAlgorithms(array);
     }
-
-
 }
