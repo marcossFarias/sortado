@@ -3,9 +3,9 @@ package org.uepb.model.algorithms.sorting.bubble;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.uepb.model.algorithms.sorting.SortTest;
+import org.uepb.model.algorithms.sorting.SortingTest;
 
-public class BubbleSortTest extends SortTest {
+public class BubbleSortTest extends SortingTest {
     @BeforeEach
     public void setup() {
         super.setup();

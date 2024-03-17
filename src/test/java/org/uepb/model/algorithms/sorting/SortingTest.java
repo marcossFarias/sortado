@@ -8,7 +8,7 @@ import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-public abstract class SortTest {
+public abstract class SortingTest {
     protected SortingAlgorithm sort;
     protected Random random;
 
