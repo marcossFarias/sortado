@@ -11,7 +11,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 Ensure you have the following installed on your system:
 - Java 17
-- Intellij IDEA
+- Intellij IDEA CE
 
 ### Get the code
 You have two ways to obtain the code for the Sortado project:
@@ -21,21 +21,26 @@ You have two ways to obtain the code for the Sortado project:
   - Choose “Download ZIP” to get a compressed archive of the entire project.
   - Extract the contents of the ZIP file to your desired location.
   
-- Clone the Repository Using HTTPS or GitHub CLI:
+- Clone the Repository Using Git or GitHub CLI:
   - Open your terminal or command prompt.
   - To clone the repository using HTTPS, run the following command:
-  - `https://github.com/marcossFarias/sortado.git`
+  - `git clone https://github.com/marcossFarias/sortado.git`
   - To clone the repository using GitHub CLI, run the following command: 
   - `gh repo clone marcossFarias/sortado`
   - Either options will create a local copy of the repository on your machine.
 
 
-### Open as an IntelliJ IDEA Project:
-- Launch IntelliJ IDEA.
+### Open as an IntelliJ IDEA CE Project:
+- Launch IntelliJ IDEA CE.
 - Choose “Open” from the welcome screen.
-- Navigate to the location where you extracted the Sortado project (if you downloaded the ZIP file) or the cloned repository (if you used Git).
-- Select the project folder and click “Open.”
-- IntelliJ IDEA will load the project, and you’ll be ready to start working on Sortado!
+- Navigate to the location where you extracted the Sortado project (if you downloaded the ZIP file) or the cloned repository (if you used Git/GitHub CLI).
+- Select the project folder and click "Open."
+- IntelliJ IDEA maven integration will load the project, and you’ll be ready to start working on Sortado! (note that you may need to install extra dependencies like JBR )
+
+### Our Test Environment
+We are committed to ensuring the reliability of our code.
+To this end, we test these steps with each major update.
+Our testing environment is a fresh installation of Pop!_OS, the latest version, running on a virtual machine powered by Virt Manager.
 
 
 
