@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.uepb.utils.ArrayUtils.generateRandomArray;
 
 public abstract class SortingTest {
     protected SortingAlgorithm sort;
@@ -84,13 +85,6 @@ public abstract class SortingTest {
         sort.sort(input);
 
         assertArrayEquals(expected, input);
-    }
-    private double[] generateRandomArray(int size) {
-        double[] array = new double[size];
-        for (int i = 0; i < size; i++) {
-            array[i] = random.nextDouble();
-        }
-        return array;
     }
 
 
