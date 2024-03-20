@@ -15,9 +15,9 @@ import static org.uepb.utils.FileUtils.readArrayFromFile;
 @OutputTimeUnit(TimeUnit.SECONDS)
 public class SortingBenchmark {
     @Param({
-            "./test.txt",
-            "./test2.txt",
-            "./test3.txt"
+            "./array100.txt",
+            "./array1000.txt",
+            "./array10000.txt"
     })
     public String ARRAY_FILE_PATH;
 
