@@ -4,18 +4,27 @@ import org.openjdk.jmh.annotations.*;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.uepb.utils.ArrayUtils.generateRandomArray;
+import static org.uepb.utils.FileUtils.readArrayFromFile;
 
+
+@State(Scope.Benchmark)
+@Fork(value = 3)
+@Warmup(iterations = 3)
+@Timeout(time = 60)
 @BenchmarkMode(Mode.AverageTime)
-@OutputTimeUnit(TimeUnit.MILLISECONDS)
-public abstract class SortingBenchmark {
-    protected abstract SortingAlgorithm getSortAlgorithm();
-    protected abstract int getArraySize();
-    protected abstract double[] getInputArray();
+@OutputTimeUnit(TimeUnit.SECONDS)
+public class SortingBenchmark {
+    @Param({
+            "./test.txt",
+            "./test2.txt",
+            "./test3.txt"
+    })
+    public String ARRAY_FILE_PATH;
 
-    @Benchmark
-    public double[] benchmarkSort() {
-        SortingAlgorithm sortingAlgorithm = getSortAlgorithm();
-        return sortingAlgorithm.sort(getInputArray().clone());
+    protected double[] inputArray;
+
+    @Setup
+    public void setup() {
+        inputArray = readArrayFromFile(ARRAY_FILE_PATH);
     }
 }
