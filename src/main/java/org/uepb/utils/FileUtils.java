@@ -2,7 +2,6 @@ package org.uepb.utils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class FileUtils {
