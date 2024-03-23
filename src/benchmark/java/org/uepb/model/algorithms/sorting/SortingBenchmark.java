@@ -8,16 +8,13 @@ import static org.uepb.utils.FileUtils.readArrayFromFile;
 
 
 @State(Scope.Benchmark)
-@Fork(value = 3)
-@Warmup(iterations = 3)
-@Timeout(time = 60)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.SECONDS)
 public class SortingBenchmark {
     @Param({
-            "./array100.txt",
-            "./array1000.txt",
-            "./array10000.txt"
+            "./test-array-1M_20240320_152732.txt",
+            "./test-array-1M_20240320_152733.txt",
+            "./test-array-1M_20240320_152735.txt"
     })
     public String ARRAY_FILE_PATH;
 
