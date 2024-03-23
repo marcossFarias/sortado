@@ -1,8 +1,9 @@
 package org.uepb.utils;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.Scanner;
+
+import static org.uepb.utils.TimeUtils.dateTimeFormatter;
 
 public class FileUtils {
     public static double[] readArrayFromFile(String path) {
@@ -23,6 +24,20 @@ public class FileUtils {
             System.out.println("File Not Found.");
             e.printStackTrace();
             return null;
+        }
+    }
+
+    public static void printArrayToFile(int[] array, String path) {
+        String fileName = path + "_" + dateTimeFormatter() + ".txt";
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            for (int value : array) {
+                writer.write(Integer.toString(value));
+                writer.newLine();
+            }
+            System.out.println("Array successfully written to file: " + path);
+        } catch (IOException e) {
+            System.err.println("Error writing array to file: " + e.getMessage());
         }
     }
 
