@@ -2,8 +2,6 @@ package org.uepb.utils;
 
 import java.util.*;
 
-import org.uepb.utils.FileUtils;
-
 public class ArrayUtils {
     public static double[] generateRandomArray(int size) {
         double[] array = new double[size];
