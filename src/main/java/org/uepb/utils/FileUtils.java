@@ -27,12 +27,12 @@ public class FileUtils {
         }
     }
 
-    public static void printArrayToFile(int[] array, String path) {
+    public static void writeArrayToFile(double[] array, String path) {
         String fileName = path + "_" + dateTimeFormatter() + ".txt";
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-            for (int value : array) {
-                writer.write(Integer.toString(value));
+            for (double value : array) {
+                writer.write(Double.toString(value));
                 writer.newLine();
             }
             System.out.println("Array successfully written to file: " + path);
