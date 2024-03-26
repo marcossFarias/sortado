@@ -27,7 +27,7 @@ public class FileUtils {
         }
     }
 
-    public static void writeArrayToFile(double[] array, String path) {
+    public static String writeArrayToFile(double[] array, String path) {
         String fileName = path + "_" + dateTimeFormatter() + ".txt";
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
@@ -39,6 +39,8 @@ public class FileUtils {
         } catch (IOException e) {
             System.err.println("Error writing array to file: " + e.getMessage());
         }
+
+        return fileName;
     }
 
     private static int countNumbersInFile(Scanner scanner) {

@@ -20,7 +20,7 @@ public class FisherYates extends ShufflingAlgorithm {
         return array;
     }
 
-    public static void shuffleArrayPart(double[] array, int start, int end) {
+    public static double[] shuffleArrayPart(double[] array, int start, int end) {
         Random rnd = new Random();
         for (int i = end; i > start; i--) {
             int index = rnd.nextInt(i + 1 - start) + start;
@@ -28,6 +28,8 @@ public class FisherYates extends ShufflingAlgorithm {
             array[index] = array[i];
             array[i] = temp;
         }
+
+        return array;
     }
 
     public static int getIndexFromPercentage(double[] array, double percentage) {
@@ -35,13 +37,13 @@ public class FisherYates extends ShufflingAlgorithm {
         int index = (int) Math.round(totalElements * percentage / 100.0) - 1;
 
         if (percentage < 0) {
-            index = Math.abs(index + totalElements) + 1;
+            index = Math.abs(index + totalElements) - 1;
         }
 
         return index;
     }
 
-    public static void shuffleArrayPortion(double[] array, double percentage) {
+    public static double[] shuffleArrayPortion(double[] array, double percentage) {
         int start = getIndexFromPercentage(array, percentage);
 
         if (percentage > 0) {
@@ -49,6 +51,8 @@ public class FisherYates extends ShufflingAlgorithm {
         } else {
             shuffleArrayPart(array, array.length - start, array.length - 1);
         }
+
+        return array;
     }
 
     public static void main(String[] args) {
