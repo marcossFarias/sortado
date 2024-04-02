@@ -11,7 +11,7 @@ public class SelectionSort extends SortingAlgorithm {
             int min_idx = i; // Assume the first element as minimum
 
             for (int j = i + 1; j < n; j++) {
-                incrementComparisons();
+                incrementComparisonsCount();
                 if (array[j] < array[min_idx]) {
                     // If the current element is smaller than the minimum, update the minimum
                     min_idx = j;
@@ -22,7 +22,7 @@ public class SelectionSort extends SortingAlgorithm {
             double smallerNumber = array[min_idx];
             array[min_idx] = array[i];
             array[i] = smallerNumber;
-            incrementSwaps();
+            incrementSwapsCount();
         }
         return array;
     }

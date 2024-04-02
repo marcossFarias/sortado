@@ -13,12 +13,12 @@ public class BubbleSort extends SortingAlgorithm {
             // The (n - i - 1) ensures we don't compare elements that are already sorted
 
             for(int j=0; j < (n - i - 1); j++) {
-                incrementComparisons();
+                incrementComparisonsCount();
                 if(array[j] > array[j+1]) {
                     double temp = array[j];
                     array[j] = array[j+1];
                     array[j+1] = temp;
-                    incrementSwaps();
+                    incrementSwapsCount();
                 }
             }
         }

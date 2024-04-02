@@ -16,8 +16,8 @@ public class InsertionSort extends SortingAlgorithm {
                 // Shift the previous element to the right
                 array[i+1] = array[i];
                 i = i - 1;
-                incrementSwaps();
-                incrementComparisons();
+                incrementSwapsCount();
+                incrementComparisonsCount();
             }
             // Insert the current element in its correct position
             array[i+1] = n;
@@ -25,7 +25,7 @@ public class InsertionSort extends SortingAlgorithm {
             if (i >= 0) {
                 // Accounts for the last failed comparison in the while loop,
                 // either i is no longer >= 0 or array[i] is no longer > key.
-                incrementComparisons();
+                incrementComparisonsCount();
             }
         }
         return array;

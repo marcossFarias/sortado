@@ -15,13 +15,13 @@ public class OptimizedBubbleSort extends SortingAlgorithm {
             swapped = false;
 
             for(int j=0; j < (n - i - 1); j++) {
-                incrementComparisons();
+                incrementComparisonsCount();
                 if(array[j] > array[j+1]) {
                     double temp = array[j];
                     array[j] = array[j+1];
                     array[j+1] = temp;
                     swapped = true;
-                    incrementSwaps();
+                    incrementSwapsCount();
                 }
             }
             if(!swapped) break;
