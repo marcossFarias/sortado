@@ -8,7 +8,7 @@ public class SortingController {
     private final SortingView view;
 
     public SortingController(SortingAlgorithm[] algorithms, SortingView view) {
-        this.algorithms = algorithms;
+        this.algorithms = algorithms.clone();
         this.view = view;
     }
 
