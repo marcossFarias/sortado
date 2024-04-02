@@ -12,15 +12,15 @@ import static org.uepb.utils.FileUtils.readArrayFromFile;
 @OutputTimeUnit(TimeUnit.SECONDS)
 public class SortingBenchmark {
     @Param({
-            "./test-array-1M_20240320_152732.txt",
-            "./test-array-1M_20240320_152733.txt",
-            "./test-array-1M_20240320_152735.txt"
+            "./test-array-1M.txt",
+            "./test-array-2M.txt",
+            "./test-array-3M.txt"
     })
     public String ARRAY_FILE_PATH;
 
     protected double[] inputArray;
 
-    @Setup
+    @Setup(Level.Trial)
     public void setup() {
         inputArray = readArrayFromFile(ARRAY_FILE_PATH);
     }
