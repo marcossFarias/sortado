@@ -17,6 +17,17 @@
     <repositories>
     </repositories>
 
+    <build>
+        <plugins>
+            <plugin>
+                <!--  https://spotbugs.github.io/spotbugs-maven-plugin/usage.html -->
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>4.8.3.1</version>
+            </plugin>
+        </plugins>
+    </build>
+
     <dependencies>
         <!-- JUnit Jupiter API for writing tests and extensions in JUnit 5. -->
         <dependency>
@@ -42,6 +53,21 @@
             <scope>compile</scope>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.github.spotbugs/spotbugs -->
+        <dependency>
+            <groupId>com.github.spotbugs</groupId>
+            <artifactId>spotbugs</artifactId>
+            <version>4.8.3</version>
+            <type>pom</type>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.github.spotbugs/spotbugs-annotations -->
+        <dependency>
+            <groupId>com.github.spotbugs</groupId>
+            <artifactId>spotbugs-annotations</artifactId>
+            <version>4.8.3</version>
+        </dependency>
+
         <!-- Guava is a set of Java libraries that includes collection utilities, caching, primitive support, concu
         rrency, common annotations, and much more. -->
         <dependency>
@@ -49,7 +75,6 @@
             <artifactId>guava</artifactId>
             <version>33.0.0-jre</version>
         </dependency>
-
     </dependencies>
 
 </project>
