@@ -4,12 +4,9 @@ import org.uepb.model.algorithms.shuffling.fisheryates.FisherYates;
 
 public class ArrayController {
     public double[] shuffleArray(double[] array, int percentage) {
-        try {
-            return FisherYates.shuffleArrayPortion(array, percentage);
-        }
-        catch (NullPointerException e) {
-            System.out.println(e);
+        if (array == null) {
             return null;
         }
+        return FisherYates.shuffleArrayPortion(array, percentage);
     }
 }
