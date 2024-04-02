@@ -2,6 +2,7 @@ package org.uepb.model.algorithms.shuffling.fisheryates;
 
 import org.uepb.model.algorithms.shuffling.ShufflingAlgorithm;
 
+import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -10,9 +11,8 @@ import static java.lang.Math.abs;
 public class FisherYates extends ShufflingAlgorithm {
     @Override
     public double[] shuffle(double[] array) {
-        Random rnd = new Random();
         for (int i = array.length - 1; i > 0; i--) {
-            int index = rnd.nextInt(i + 1);
+            var index = secureRnd.nextInt(i + 1);
             double temp = array[index];
             array[index] = array[i];
             array[i] = temp;
@@ -21,9 +21,8 @@ public class FisherYates extends ShufflingAlgorithm {
     }
 
     public static double[] shuffleArrayPart(double[] array, int start, int end) {
-        Random rnd = new Random();
         for (int i = end; i > start; i--) {
-            int index = rnd.nextInt(i + 1 - start) + start;
+            int index = secureRnd.nextInt(i + 1 - start) + start;
             double temp = array[index];
             array[index] = array[i];
             array[i] = temp;
