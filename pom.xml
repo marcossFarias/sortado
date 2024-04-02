@@ -24,6 +24,29 @@
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
                 <version>4.8.3.1</version>
+
+                <executions>
+                    <execution>
+                        <id>spotbugs</id>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+                <configuration>
+                    <excludeFilterFile>spotbugs-exclude.xml</excludeFilterFile>
+                    <includeFilterFile>spotbugs-include.xml</includeFilterFile>
+
+                    <plugins>
+                        <plugin>
+                            <groupId>de.heidelberg.pvs.diego</groupId>
+                            <artifactId>spotJMHbugs</artifactId>
+                            <version>1.0-SNAPSHOT</version>
+                        </plugin>
+                    </plugins>
+
+                </configuration>
             </plugin>
         </plugins>
     </build>
