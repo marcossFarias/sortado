@@ -5,6 +5,7 @@ import org.uepb.model.algorithms.sorting.SortingAlgorithm;
 import org.uepb.model.algorithms.sorting.bubble.BubbleSort;
 import org.uepb.model.algorithms.sorting.bubble.OptimizedBubbleSort;
 import org.uepb.model.algorithms.sorting.insertion.InsertionSort;
+import org.uepb.model.algorithms.sorting.merge.MergeSort;
 import org.uepb.model.algorithms.sorting.selection.OptimizedSelectionSort;
 import org.uepb.model.algorithms.sorting.selection.SelectionSort;
 import org.uepb.view.algorithms.sorting.SortingComparisonTerminal;
@@ -19,6 +20,7 @@ public class Main {
                 new InsertionSort(),
                 new SelectionSort(),
                 new OptimizedSelectionSort(),
+                new MergeSort(),
         };
 
         SortingController controller = new SortingController(algorithms, new SortingComparisonTerminal());
