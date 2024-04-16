@@ -4,6 +4,11 @@ import org.uepb.model.algorithms.sorting.SortingAlgorithm;
 
 public class MergeSort extends SortingAlgorithm {
     @Override
+    public long getNumberOfRecursiveCalls() {
+        return super.getNumberOfRecursiveCalls();
+    }
+
+    @Override
     // Método principal para ordenar o array
     public double[] sort(double[] array) {
         mergeSort(array, 0, array.length - 1);
@@ -12,6 +17,7 @@ public class MergeSort extends SortingAlgorithm {
 
     // Método para dividir o array em subarrays menores e ordená-los
     private void mergeSort(double[] array, int left, int right) {
+        incrementRecursiveCalls(); // Incrementando o contador a cada chamada recursiva
         if (left < right) {
             int mid = left + (right - left) / 2; // Calcula o ponto médio do array
             mergeSort(array, left, mid);  // Ordena a metade esquerda do array

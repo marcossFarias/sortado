@@ -5,6 +5,7 @@ import java.util.concurrent.atomic.LongAdder;
 public abstract class SortingAlgorithm {
     protected final LongAdder numberOfComparisons = new LongAdder();
     protected final LongAdder numberOfSwaps = new LongAdder();
+    protected final LongAdder numberOfRecursiveCalls = new LongAdder();
 
     public SortingAlgorithm() {
     }
@@ -16,6 +17,8 @@ public abstract class SortingAlgorithm {
     public long getNumberOfSwaps() {
         return numberOfSwaps.longValue();
     }
+    public long getNumberOfRecursiveCalls() { return numberOfRecursiveCalls.longValue(); }
+
 
     public abstract double[] sort(double[] array);
 
@@ -34,4 +37,6 @@ public abstract class SortingAlgorithm {
     protected void incrementSwaps() {
         numberOfSwaps.increment();
     }
+    protected void incrementRecursiveCalls() {
+        numberOfRecursiveCalls.increment();}
 }
