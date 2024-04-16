@@ -3,14 +3,28 @@ package org.uepb.model.algorithms.sorting.merge;
 import org.uepb.model.algorithms.sorting.SortingAlgorithm;
 
 public class MergeSort extends SortingAlgorithm {
+    private long numberOfSwaps; // Variável para rastrear o número de trocas
+    private long numberOfComparisons; // Variável para rastrear o número de comparações
+
     @Override
     public long getNumberOfRecursiveCalls() {
         return super.getNumberOfRecursiveCalls();
     }
 
+    // Adicionando métodos para obter o número de trocas e comparações
+    public long getNumberOfSwaps() {
+        return numberOfSwaps;
+    }
+
+    public long getNumberOfComparisons() {
+        return numberOfComparisons;
+    }
+
     @Override
     // Método principal para ordenar o array
     public double[] sort(double[] array) {
+        numberOfSwaps = 0; // Inicializa o contador de trocas
+        numberOfComparisons = 0; // Inicializa o contador de comparações
         mergeSort(array, 0, array.length - 1);
         return array;
     }
@@ -49,6 +63,7 @@ public class MergeSort extends SortingAlgorithm {
         int k = left;
 
         while (i < n1 && j < n2) {
+            numberOfComparisons++; // Incrementa o contador de comparações
             if (leftArray[i] <= rightArray[j]) {
                 array[k] = leftArray[i];
                 i++;
@@ -57,6 +72,7 @@ public class MergeSort extends SortingAlgorithm {
                 j++;
             }
             k++;
+            numberOfSwaps++; // Incrementa o contador de trocas
         }
 
         // Copia os elementos restantes do subarray esquerdo para o array original
@@ -64,6 +80,7 @@ public class MergeSort extends SortingAlgorithm {
             array[k] = leftArray[i];
             i++;
             k++;
+            numberOfSwaps++; // Incrementa o contador de trocas
         }
 
         // Copia os elementos restantes do subarray direito para o array original
@@ -71,7 +88,7 @@ public class MergeSort extends SortingAlgorithm {
             array[k] = rightArray[j];
             j++;
             k++;
+            numberOfSwaps++; // Incrementa o contador de trocas
         }
     }
-    }
-
+}
