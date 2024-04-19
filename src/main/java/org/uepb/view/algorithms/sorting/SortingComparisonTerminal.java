@@ -11,7 +11,7 @@ public class SortingComparisonTerminal implements SortingView {
         double numberOfComparisons = algorithm.getNumberOfComparisons();
         double elapsedTime = algorithm.executionTime(originalArray.clone());
 
-        System.out.printf("%s:\n\tNumber of swaps = %.0f\tNumber of comparisons = %.0f\tElapsed time = %.0f\n\tOriginal Array = %s\n\tSorted Array = %s\n",
+        System.out.printf("%s:%n\tNumber of swaps = %.0f\tNumber of comparisons = %.0f\tElapsed time = %.0f%n\tOriginal Array = %s%n\tSorted Array = %s%n",
                 algorithm.getClass().getSimpleName(),
                 numberOfSwaps,
                 numberOfComparisons,
@@ -26,7 +26,7 @@ public class SortingComparisonTerminal implements SortingView {
         double numberOfComparisons = algorithm.getNumberOfComparisons();
         double elapsedTime = algorithm.executionTime(originalArray.clone());
 
-        System.out.printf("%s:\n\tNumber of swaps = %.0f\tNumber of comparisons = %.0f\tElapsed time = %.0f\n",
+        System.out.printf("%s:%n\tNumber of swaps = %.0f\tNumber of comparisons = %.0f\tElapsed time = %.0f%n",
                 algorithm.getClass().getSimpleName(),
                 numberOfSwaps,
                 numberOfComparisons,

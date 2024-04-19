@@ -1,13 +1,14 @@
 package org.uepb.model.algorithms.sorting.selection;
 
 import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.infra.Blackhole;
 import org.uepb.model.algorithms.sorting.SortingBenchmark;
 
 
 public class OptimizedSelectionSortBenchmark extends SortingBenchmark {
     @Benchmark
-    public double[] benchmark() {
+    public void benchmark(Blackhole bh) {
         OptimizedSelectionSort optimizedSelectionSort = new OptimizedSelectionSort();
-        return optimizedSelectionSort.sort(inputArray.clone());
+        bh.consume(optimizedSelectionSort.sort(inputArray.clone()));
     }
 }

@@ -91,7 +91,7 @@ public abstract class SortingTest {
     // Resilience Cases Tests
     @Test
     public void testLargeArray() {
-        double[] input = new double[16384];
+        double[] input = new double[16_384];
         for (int i = 0; i < input.length; i++) {
             input[i] = input.length - i;
         }
