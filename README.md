@@ -36,6 +36,7 @@ You have two ways to obtain the code for the Sortado project:
 - Navigate to the location where you extracted the Sortado project (if you downloaded the ZIP file) or the cloned repository (if you used Git/GitHub CLI).
 - Select the project folder and click "Open."
 - IntelliJ IDEA maven integration will load the project, and you’ll be ready to start working on Sortado! (note that you may need to install extra dependencies like JBR )
+- Go to the "Project structure," then in the "Modules" tab, mark the java folder within the benchmark (/src/benchmark/java) as "Tests".
 
 ### Our Test Environment
 We are committed to ensuring the reliability of our code.
