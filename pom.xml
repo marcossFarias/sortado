@@ -65,7 +65,7 @@
             <groupId>org.openjdk.jmh</groupId>
             <artifactId>jmh-core</artifactId>
             <version>1.37</version>
-            <scope>compile</scope>
+            <scope>system</scope>
         </dependency>
 
         <!-- JMH Generator is a tool for generating benchmark code for JMH. -->
@@ -73,7 +73,7 @@
             <groupId>org.openjdk.jmh</groupId>
             <artifactId>jmh-generator-annprocess</artifactId>
             <version>1.37</version>
-            <scope>compile</scope>
+            <scope>system</scope>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.github.spotbugs/spotbugs -->
