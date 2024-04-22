@@ -11,6 +11,15 @@ public class ArrayUtils {
         return array;
     }
 
+    public static double[] generateRandomArray(int size, double constant) {
+        double[] arr = new double[size];
+        Random random = new Random();
+
+        Arrays.fill(arr, constant);
+
+        return arr;
+    }
+
     public static int[] generateUniqueIntArray(int minValue, int maxValue, int size) {
         Random random = new Random();
 
