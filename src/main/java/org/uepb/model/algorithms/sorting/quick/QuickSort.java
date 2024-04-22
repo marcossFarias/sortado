@@ -1,48 +1,70 @@
 package org.uepb.model.algorithms.sorting.quick;
 
-import java.util.concurrent.RecursiveAction;
+import org.uepb.model.algorithms.sorting.SortingAlgorithm;
 
-public class QuickSort extends RecursiveAction {
-    private final double[] array;
-    private final int left;
-    private final int right;
+import java.util.Random;
 
-    public QuickSort(double[] array, int left, int right) {
-        this.array = array;
-        this.left = left;
-        this.right = right;
-    }
+public class QuickSort extends SortingAlgorithm {
+    private static final int CHUNK_SIZE = 50000; // Set the chunk size here
 
     @Override
-    protected void compute() {
+    public double[] sort(double[] array) {
+        if (array == null || array.length <= 1) {
+            return array;
+        }
+
+        quickSort(array, 0, array.length - 1);
+
+        return array;
+    }
+
+    private void quickSort(double[] array, int left, int right) {
         if (left < right) {
-            // Parte que envolve a recursão e o fork-join
             int pivotIndex = partition(array, left, right);
-            QuickSort leftTask = new QuickSort(array, left, pivotIndex - 1);
-            QuickSort rightTask = new QuickSort(array, pivotIndex + 1, right);
-            leftTask.fork(); // Fork da tarefa da esquerda
-            rightTask.fork(); // Fork da tarefa da direita
-            leftTask.join(); // Espera a tarefa da esquerda terminar
-            rightTask.join(); // Espera a tarefa da direita terminar
+            int leftChunkSize = Math.min(CHUNK_SIZE, pivotIndex - left);
+            int rightChunkSize = Math.min(CHUNK_SIZE, right - pivotIndex);
+
+            quickSort(array, left, left + leftChunkSize - 1);
+            quickSort(array, right - rightChunkSize, right);
+
+            if (leftChunkSize > 0) {
+                sortChunk(array, left, left + leftChunkSize - 1);
+            }
+            if (rightChunkSize > 0) {
+                sortChunk(array, right - rightChunkSize, right);
+            }
+        }
+    }
+
+    private void sortChunk(double[] array, int left, int right) {
+        if (left < right) {
+            int pivotIndex = partition(array, left, right);
+            sortChunk(array, left, pivotIndex - 1);
+            sortChunk(array, pivotIndex + 1, right);
         }
     }
 
     private int partition(double[] array, int left, int right) {
+        Random random = new Random();
+        int pivotIndex = random.nextInt(right - left + 1) + left;
+        swap(array, pivotIndex, right);
+
         double pivot = array[right];
-        int i = left - 1;
+        int i = left;
         for (int j = left; j < right; j++) {
-            if (array[j] <= pivot) {
+            if (array[j] < pivot) {
+                swap(array, i, j);
                 i++;
-                double temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
             }
         }
-        double temp = array[i + 1];
-        array[i + 1] = array[right];
-        array[right] = temp;
-        return i + 1;
+        swap(array, i, right);
+
+        return i;
     }
 
-
+    private void swap(double[] array, int i, int j) {
+        double temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
 }
