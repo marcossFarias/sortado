@@ -9,13 +9,13 @@ public class SortingComparisonTerminal implements SortingView {
     public void displayResults(SortingAlgorithm algorithm, double[] originalArray, double[] sortedArray) {
         double numberOfSwaps = algorithm.getNumberOfSwaps();
         double numberOfComparisons = algorithm.getNumberOfComparisons();
-        double elapsedTime = algorithm.executionTime(originalArray.clone());
+        // double elapsedTime = algorithm.executionTime(originalArray.clone());
 
-        System.out.printf("%s:%n\tNumber of swaps = %.0f\tNumber of comparisons = %.0f\tElapsed time = %.0f%n\tOriginal Array = %s%n\tSorted Array = %s%n",
+        System.out.printf("%s:%n\tNumber of swaps = %.0f\tNumber of comparisons = %.0f\tOriginal Array = %s%n\tSorted Array = %s%n",
                 algorithm.getClass().getSimpleName(),
                 numberOfSwaps,
                 numberOfComparisons,
-                elapsedTime,
+                // elapsedTime,
                 Arrays.toString(originalArray),
                 Arrays.toString(sortedArray));
     }
@@ -24,12 +24,12 @@ public class SortingComparisonTerminal implements SortingView {
     public void displaySimplifiedResults(SortingAlgorithm algorithm, double[] originalArray, double[] sortedArray) {
         double numberOfSwaps = algorithm.getNumberOfSwaps();
         double numberOfComparisons = algorithm.getNumberOfComparisons();
-        double elapsedTime = algorithm.executionTime(originalArray.clone());
+        //double elapsedTime = algorithm.executionTime(originalArray.clone());
 
-        System.out.printf("%s:%n\tNumber of swaps = %.0f\tNumber of comparisons = %.0f\tElapsed time = %.0f%n",
+        System.out.printf("%s:%n\tNumber of swaps = %.0f\tNumber of comparisons = %.0f",
                 algorithm.getClass().getSimpleName(),
                 numberOfSwaps,
-                numberOfComparisons,
-                elapsedTime);
+                numberOfComparisons);
+                //elapsedTime);
     }
 }
