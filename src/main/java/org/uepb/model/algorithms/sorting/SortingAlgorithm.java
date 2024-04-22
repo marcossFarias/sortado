@@ -1,12 +1,13 @@
 package org.uepb.model.algorithms.sorting;
 
+import java.lang.management.ManagementFactory;
 import java.util.concurrent.atomic.LongAdder;
 
 public abstract class SortingAlgorithm {
     private long executionTime;
     private final LongAdder numberOfComparisons = new LongAdder();
     private final LongAdder numberOfSwaps = new LongAdder();
-
+    private long memoryUsage;
 
     // Abstract methods
 
@@ -35,10 +36,12 @@ public abstract class SortingAlgorithm {
      */
     protected SortingAlgorithm(double[] array) {
         long startTime = System.nanoTime();
+        this.memoryUsage = ManagementFactory.getMemoryMXBean().getHeapMemoryUsage().getUsed();
         sort(array);
         long endTime = System.nanoTime();
 
         this.executionTime = endTime - startTime;
+        this.memoryUsage = ManagementFactory.getMemoryMXBean().getHeapMemoryUsage().getUsed() - this.memoryUsage;
     }
 
 
@@ -86,5 +89,9 @@ public abstract class SortingAlgorithm {
      */
     protected void incrementSwapsCount() {
         numberOfSwaps.increment();
+    }
+
+    public long getMemoryUsage() {
+        return memoryUsage;
     }
 }
