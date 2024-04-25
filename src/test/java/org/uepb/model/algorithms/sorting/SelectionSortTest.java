@@ -1,15 +1,14 @@
-package org.uepb.model.algorithms.sorting.quick;
+package org.uepb.model.algorithms.sorting;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.uepb.model.algorithms.sorting.SortingTest;
 
-public class QuickSortTest extends SortingTest {
+public class SelectionSortTest extends SortingTest {
     @BeforeEach
     public void setup() {
         super.setup();
-        sort = new QuickSort();
+        sort = new SelectionSort();
     }
 
     // Functionality Tests
@@ -17,11 +16,12 @@ public class QuickSortTest extends SortingTest {
     public void testNumberOfSwaps() {
         double[] input = {5, 3, 1, 4, 2};
         sort.sort(input);
-        Assertions.assertEquals(7, sort.getNumberOfSwaps());
+        Assertions.assertEquals(4, sort.getNumberOfSwaps());
     }
 
     @Test
     public void testNumberOfComparisons() {
+        // numberOfComparison is (n*(n-1)) / 2
         double[] input = {5, 3, 1, 4, 2};
         sort.sort(input);
         Assertions.assertEquals(10, sort.getNumberOfComparisons());

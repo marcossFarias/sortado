@@ -1,15 +1,14 @@
-package org.uepb.model.algorithms.sorting.insertion;
+package org.uepb.model.algorithms.sorting;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.uepb.model.algorithms.sorting.SortingTest;
 
-public class InsertionSortTest extends SortingTest {
+public class BubbleSortTest extends SortingTest {
     @BeforeEach
     public void setup() {
         super.setup();
-        sort = new InsertionSort();
+        sort = new BubbleSort();
     }
 
     // Functionality Tests
@@ -22,8 +21,8 @@ public class InsertionSortTest extends SortingTest {
 
     @Test
     public void testNumberOfComparisons() {
-        double[] input = {5, 2, 4, 1, 3};
+        double[] input = {5, 3, 1, 4, 2};
         sort.sort(input);
-        Assertions.assertEquals(9, sort.getNumberOfComparisons());
+        Assertions.assertEquals(10, sort.getNumberOfComparisons());
     }
 }

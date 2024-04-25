@@ -1,15 +1,14 @@
-package org.uepb.model.algorithms.sorting.bubble;
+package org.uepb.model.algorithms.sorting;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.uepb.model.algorithms.sorting.SortingTest;
 
-public class BubbleSortTest extends SortingTest {
+public class QuickSortTest extends SortingTest {
     @BeforeEach
     public void setup() {
         super.setup();
-        sort = new BubbleSort();
+        sort = new QuickSort();
     }
 
     // Functionality Tests
