@@ -111,6 +111,14 @@
             <artifactId>commons-csv</artifactId>
             <version>1.10.0</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.opencsv/opencsv -->
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>5.9</version>
+        </dependency>
+
     </dependencies>
 
 </project>
