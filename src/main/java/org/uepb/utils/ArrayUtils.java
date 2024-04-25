@@ -27,8 +27,8 @@ public class ArrayUtils {
         int[] result = new int[size];
 
         while (uniqueNumbers.size() < size) {
-            int randomValue = random.nextInt(minValue, maxValue);
-            uniqueNumbers.add(randomValue);
+            //int randomValue = random.nextInt(minValue, maxValue);
+            //uniqueNumbers.add(randomValue);
         }
 
         int index = 0;

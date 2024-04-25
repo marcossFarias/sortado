@@ -2,6 +2,7 @@ package org.uepb.model.algorithms.sorting.insertion;
 
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.infra.Blackhole;
+import org.uepb.model.algorithms.sorting.InsertionSort;
 import org.uepb.model.algorithms.sorting.SortingBenchmark;
 
 
