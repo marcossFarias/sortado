@@ -45,6 +45,14 @@ public class TimeSorter {
                 sortAlgorithm = new BubbleSort<>();
                 suffix = "_bubble";
                 break;
+            case "counting":
+                sortAlgorithm = new CountingSort<>();
+                suffix = "_counting";
+                break;
+            case "heap":
+                sortAlgorithm = new HeapSort<>();
+                suffix = "_heap";
+                break;
             case "insertion":
                 sortAlgorithm = new InsertionSort<>();
                 suffix = "_insertion";

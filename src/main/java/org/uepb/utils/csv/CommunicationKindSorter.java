@@ -4,9 +4,7 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.CSVRecord;
-import org.uepb.model.algorithms.sorting.BubbleSort;
-import org.uepb.model.algorithms.sorting.InsertionSort;
-import org.uepb.model.algorithms.sorting.SortingAlgorithm;
+import org.uepb.model.algorithms.sorting.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -28,12 +26,41 @@ public class CommunicationKindSorter {
         }
 
         SortingAlgorithm<String> sortAlgorithm;
+        int lastIndexOf = outputFile.lastIndexOf(".");
+        String fileName = outputFile.substring(0, lastIndexOf);
+        String suffix = "";
         switch (algorithm) {
             case "bubble":
                 sortAlgorithm = new BubbleSort<>();
+                suffix = "_bubble";
+                break;
+            case "counting":
+                sortAlgorithm = new CountingSort<>();
+                suffix = "_counting";
+                break;
+            case "heap":
+                sortAlgorithm = new HeapSort<>();
+                suffix = "_heap";
                 break;
             case "insertion":
                 sortAlgorithm = new InsertionSort<>();
+                suffix = "_insertion";
+                break;
+            case "merge":
+                sortAlgorithm = new MergeSort<>();
+                suffix = "_merge";
+                break;
+            case "quick":
+                sortAlgorithm = new QuickSort<>();
+                suffix = "_quick";
+                break;
+            case "quickm3":
+                sortAlgorithm = new QuickSortMedianOfThree<>();
+                suffix = "_quickm3";
+                break;
+            case "selection":
+                sortAlgorithm = new SelectionSort<>();
+                suffix = "_selection";
                 break;
             default:
                 throw new IllegalArgumentException("Invalid sorting algorithm specified");
@@ -42,7 +69,7 @@ public class CommunicationKindSorter {
         String[] communicationKindArray = communicationKindColumn.toArray(new String[0]);
         sortAlgorithm.sort(communicationKindArray);
 
-        try (CSVPrinter printer = CSVFormat.EXCEL.print(new FileWriter(outputFile))) {
+        try (CSVPrinter printer = CSVFormat.EXCEL.print(new FileWriter(fileName + suffix + "_sort_communication_kind" + ".csv"))) {
             for (String sortedValue : communicationKindArray) {
                 for (CSVRecord row : allData) {
                     if (row.get("communication_kind").equals(sortedValue)) {
