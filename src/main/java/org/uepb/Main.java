@@ -1,45 +1,41 @@
 package org.uepb;
 
-import com.opencsv.CSVReader;
-import com.opencsv.CSVReaderBuilder;
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVParser;
-import org.apache.commons.csv.CSVPrinter;
-import org.apache.commons.csv.CSVRecord;
-import org.uepb.model.algorithms.sorting.BubbleSort;
+import com.opencsv.exceptions.CsvException;
 import org.uepb.utils.csv.CommunicationKindSorter;
 import org.uepb.utils.csv.DateSorter;
 import org.uepb.utils.csv.TimeSorter;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, CsvException {
         String inputFile = "./src/main/resources/databases/leda/test.csv";
-        String outputFile = "./src/main/resources/databases/leda/test-output-time.csv";
-        String outputFile2 = "./src/main/resources/databases/leda/test-output-date.csv";
-        String outputFile3 = "./src/main/resources/databases/leda/test-output-communication.csv";
+        String outputFile = "./src/main/resources/databases/leda/test_medio_caso.csv";
 
-        // Read the CSV file
-        BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-        CSVParser parser = CSVFormat.EXCEL.withFirstRecordAsHeader().parse(reader);
-        List<CSVRecord> allData = parser.getRecords();
+        String[] algorithms = {"bubble", "counting", "heap", "insertion", "merge", "quick", "quickm3", "selection"};
 
-        TimeSorter timeSorter = new TimeSorter();
-        timeSorter.sort(inputFile, outputFile, "insertion");
+        for (String algorithm : algorithms) {
+            TimeSorter timeSorter = new TimeSorter();
+            long startTime = System.nanoTime();
+            timeSorter.sort(inputFile, outputFile, algorithm);
+            long endTime = System.nanoTime();
+            long timeElapsed = endTime - startTime;
+            System.out.println("Algorithm: " + algorithm + ", Metric: Time" + ", Time elapsed: " + timeElapsed + " nanos");
 
-        DateSorter dateSorter = new DateSorter();
-        dateSorter.sort(inputFile, outputFile2, "insertion");
+            DateSorter dateSorter = new DateSorter();
+            startTime = System.nanoTime();
+            dateSorter.sort(inputFile, outputFile, algorithm);
+            endTime = System.nanoTime();
+            timeElapsed = endTime - startTime;
+            System.out.println("Algorithm: " + algorithm + ", Metric: Date" + ", Time elapsed: " + timeElapsed + " nanos");
 
-        CommunicationKindSorter communicationSorter = new CommunicationKindSorter();
-        communicationSorter.sort(inputFile, outputFile3, "insertion");
+            CommunicationKindSorter communicationSorter = new CommunicationKindSorter();
+            startTime = System.nanoTime();
+            communicationSorter.sort(inputFile, outputFile, algorithm);
+            endTime = System.nanoTime();
+            timeElapsed = endTime - startTime;
+            System.out.println("Algorithm: " + algorithm + ", Metric: CommunicationKind" + ", Time elapsed: " + timeElapsed + " nanos");
+        }
     }
 }
