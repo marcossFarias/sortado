@@ -10,8 +10,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 ### Prerequisites
 
 Ensure you have the following installed on your system:
-- Java 17
-- Intellij IDEA CE
+- Java 22
+- Intellij IDEA CE/ULTIMATE
 
 ### Get the code
 You have two ways to obtain the code for the Sortado project:
@@ -47,9 +47,8 @@ Our testing environment is a fresh installation of Pop!_OS, the latest version, 
 
 ## Usage
 Currently, the code is designed for basic usage.
-In the main function, we generate a collection of arrays with different sizes.
-These arrays are then used as parameters for various sorting algorithms.
-This process provides a general understanding of the algorithms’ behavior.
+In the main function, we sort a small sample from the actual database.
+This process provides a general understanding of the algorithms' behavior.
 
 For more detailed time metrics, navigate to the ‘benchmarks’ directory and execute the ‘Benchmark Runner’ class.
 Please note, if you wish to run individual benchmarks, you will need to install the JMH extension for IntelliJ.
@@ -62,4 +61,3 @@ This allows you to easily access and analyze the benchmark results at any time.
 
 ## Acknowledges
 - AI initially generates the comments, docstrings, readme, wiki and other texts in this project. They are then extensively revised and enhanced by our dedicated team for improved clarity and accuracy.
-- It’s worth noting that the use of atomic counters appears to have some impact on the timing of tiny arrays (those with fewer than 20 elements). 
