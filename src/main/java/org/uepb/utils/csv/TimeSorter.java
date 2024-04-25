@@ -1,14 +1,12 @@
 package org.uepb.utils.csv;
 
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVParser;
-import org.apache.commons.csv.CSVPrinter;
-import org.apache.commons.csv.CSVRecord;
-import org.uepb.model.algorithms.sorting.BubbleSort;
-import org.uepb.model.algorithms.sorting.InsertionSort;
-import org.uepb.model.algorithms.sorting.SortingAlgorithm;
+import com.opencsv.CSVParserBuilder;
+import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
+import com.opencsv.CSVWriter;
+import com.opencsv.exceptions.CsvException;
+import org.uepb.model.algorithms.sorting.*;
 
-import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -16,41 +14,76 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TimeSorter {
-    public void sort(String inputFile, String outputFile, String algorithm) throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-        CSVParser parser = CSVFormat.EXCEL.withFirstRecordAsHeader().parse(reader);
-        List<CSVRecord> allData = parser.getRecords();
-
-        List<Integer> numericColumn = new ArrayList<>();
-        for (CSVRecord row : allData) {
-            numericColumn.add(Integer.parseInt(row.get("time")));
+    public void sort(String inputFile, String outputFile, String algorithm) throws IOException, CsvException {
+        CSVReader reader = new CSVReaderBuilder(new FileReader(inputFile))
+                .withCSVParser(new CSVParserBuilder().withQuoteChar('\'').build())
+                .withSkipLines(1) // indica que a primeira linha contém o cabeçalho
+                .build();
+        List<String[]> allData = new ArrayList<>();
+        String[] nextRecord;
+        while ((nextRecord = reader.readNext()) != null) {
+            allData.add(nextRecord);
         }
 
-        SortingAlgorithm<Integer> sortAlgorithm;
+        List<Double> numericColumn = new ArrayList<>();
+        for (String[] row : allData) {
+            String time = row[3];
+            if (time.matches("\\d+(?:\\.\\d+)?")) {
+                double value = Double.parseDouble(time);
+                numericColumn.add(value);
+            } else {
+                System.err.println("Invalid long value: " + time);
+            }
+        }
+
+        SortingAlgorithm<Double> sortAlgorithm;
+        int lastIndexOf = outputFile.lastIndexOf(".");
+        String fileName = outputFile.substring(0, lastIndexOf);
+        String suffix = "";
         switch (algorithm) {
             case "bubble":
                 sortAlgorithm = new BubbleSort<>();
+                suffix = "_bubble";
                 break;
             case "insertion":
                 sortAlgorithm = new InsertionSort<>();
+                suffix = "_insertion";
+                break;
+            case "merge":
+                sortAlgorithm = new MergeSort<>();
+                suffix = "_merge";
+                break;
+            case "quick":
+                sortAlgorithm = new QuickSort<>();
+                suffix = "_quick";
+                break;
+            case "quickm3":
+                sortAlgorithm = new QuickSortMedianOfThree<>();
+                suffix = "_quickm3";
+                break;
+            case "selection":
+                sortAlgorithm = new SelectionSort<>();
+                suffix = "_selection";
                 break;
             default:
                 throw new IllegalArgumentException("Invalid sorting algorithm specified");
         }
 
-        Integer[] numericArray = numericColumn.toArray(new Integer[0]);
+        Double[] numericArray = numericColumn.toArray(new Double[0]);
         sortAlgorithm.sort(numericArray);
 
-        try (CSVPrinter printer = CSVFormat.EXCEL.print(new FileWriter(outputFile))) {
-            for (Integer sortedValue : numericArray) {
-                for (CSVRecord row : allData) {
-                    if (Integer.parseInt(row.get("time")) == sortedValue) {
-                        printer.printRecord(row);
-                        break;
-                    }
+        CSVWriter writer = new CSVWriter(new FileWriter(fileName + suffix + "_sort_time" + ".csv"));
+
+        for (Double sortedValue : numericArray) {
+            for (String[] row : allData) {
+                if (Double.parseDouble(row[3]) == sortedValue) {
+                    writer.writeNext(row);
+                    break;
                 }
             }
         }
+
+        writer.close();
+        reader.close();
     }
 }
-
