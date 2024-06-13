@@ -9,7 +9,10 @@
 
 ## Como usar
 
-* abra o arquivo `Main.java` execute ele
+* adicone no diretório [resources](resources) os arquivos `resources/pedestrian.cs`
+e `resources/road_accidents_czechia_2016_2022.csv` disponíveis em <https://www.kaggle.com/datasets/pereprosov/road-accidents-in-the-czech-republic/download?datasetVersionNumber=3>
+
+* abra o arquivo `Main.java` e execute ele
 
 ## Modularização
 
