@@ -1,6 +1,5 @@
 package org.uepb.controller;
 
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.uepb.service.CsvFilterService;
 
@@ -8,7 +7,10 @@ import org.uepb.service.CsvFilterService;
  * This class is responsible for controlling transformations on CSV files related to accidents.
  */
 public class AccidentCsvConstroller {
-  
+  private AccidentCsvConstroller() {
+    throw new IllegalStateException("Utility class");
+  }
+
   private static final Logger logger = Logger.getLogger(AccidentCsvConstroller.class.getName());
 
   private static final String ROAD_ACCIDENTS_FILE =
