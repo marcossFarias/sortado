@@ -60,22 +60,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- JMH Core is a framework for benchmarking Java code. -->
-        <dependency>
-            <groupId>org.openjdk.jmh</groupId>
-            <artifactId>jmh-core</artifactId>
-            <version>1.37</version>
-            <scope>compile</scope>
-        </dependency>
-
-        <!-- JMH Generator is a tool for generating benchmark code for JMH. -->
-        <dependency>
-            <groupId>org.openjdk.jmh</groupId>
-            <artifactId>jmh-generator-annprocess</artifactId>
-            <version>1.37</version>
-            <scope>compile</scope>
-        </dependency>
-
         <!-- https://mvnrepository.com/artifact/com.github.spotbugs/spotbugs -->
         <dependency>
             <groupId>com.github.spotbugs</groupId>
