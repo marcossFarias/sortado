@@ -48,18 +48,17 @@ public class CsvUtils {
   /**
    * Filters CSV data based on a specific column and a string value.
    *
-   * @param inputFile      The path to the input CSV file.
+   * @param csvData        The List of String arrays representing the CSV to be filtered.
    * @param columnToFilter The name of the column to filter.
    * @param stringToFilter The string value to filter by.
    * @return A List of String arrays representing the filtered CSV data.
    */
   public static List<String[]> filterCsv(
-      String inputFile,
+      List<String[]> csvData,
       String columnToFilter,
       String stringToFilter) {
 
     List<String[]> filteredData = new ArrayList<>();
-    List<String[]> csvData = readCsv(inputFile);
     int columnIndex = getColumnIndex(csvData.get(0), columnToFilter);
 
     filteredData.add(csvData.get(0)); // Add CSV header
