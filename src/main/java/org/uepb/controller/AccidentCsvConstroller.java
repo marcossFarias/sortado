@@ -14,7 +14,7 @@ public class AccidentCsvConstroller {
   private static final Logger logger = Logger.getLogger(AccidentCsvConstroller.class.getName());
 
   private static final String ROAD_ACCIDENTS_FILE =
-      "resources/road_accidents_czechia_2016_2022.csv";
+      "resources/kaggle/road_accidents_czechia_2016_2022.csv";
   private static final String ALCOHOL_ACCIDENTS_OUTPUT_FILE =
       "resources/transformations/alcohol_accidents.csv";
   private static final String ACCIDENTS_NCBMV_FILE =
@@ -24,7 +24,7 @@ public class AccidentCsvConstroller {
   private static final String ACCIDENTS_CWFA_OUTPUT_FILE =  
       "resources/transformations/accidents_CWFA.csv";
   private static final String PEDESTRIAN_INPUT_FILE =
-      "resources/pedestrian.csv";
+      "resources/kaggle/pedestrian.csv";
   private static final String DRUNK_PEDESTRIANS_OUTPUT_FILE =
       "resources/transformations/drunk_pedestrians.csv";
 
