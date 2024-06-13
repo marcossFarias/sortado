@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Utility class for handling CSV files.
  */
-class CsvUtils {
+public class CsvUtils {
   private CsvUtils() {
     throw new IllegalStateException("Utility class");
   }
