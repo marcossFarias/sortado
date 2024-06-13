@@ -5,7 +5,7 @@ import java.io.*;
 public class CSVUtils {
     public static void filterCSV(String inputFile, int columnIndex, String filterValue, String outputFile) {
         try (BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-             BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
+                BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
             String headerLine = reader.readLine();
             writer.write(headerLine);
             writer.newLine();
