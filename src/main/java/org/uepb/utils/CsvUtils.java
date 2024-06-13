@@ -7,11 +7,20 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Utility class for handling CSV files.
+ */
 class CsvUtils {
   private CsvUtils() {
     throw new IllegalStateException("Utility class");
   }
 
+  /**
+   * Reads data from a CSV file.
+   *
+   * @param inputFile The path to the input CSV file.
+   * @return A List of String arrays representing the CSV data.
+   */
   public static List<String[]> readCsv(String inputFile) {
     List<String[]> csvData = new ArrayList<>();
     try (CSVReader reader = new CSVReader(new FileReader(inputFile))) {
@@ -22,6 +31,12 @@ class CsvUtils {
     return csvData;
   }
 
+  /**
+   * Writes data to a CSV file.
+   *
+   * @param outputFile The path to the output CSV file.
+   * @param data       The data to be written to the CSV file.
+   */
   public static void writeCsv(String outputFile, List<String[]> data) {
     try (CSVWriter writer = new CSVWriter(new FileWriter(outputFile))) {
       writer.writeAll(data);
@@ -30,15 +45,23 @@ class CsvUtils {
     }
   }
 
+  /**
+   * Filters CSV data based on a specific column and a string value.
+   *
+   * @param inputFile      The path to the input CSV file.
+   * @param columnToFilter The name of the column to filter.
+   * @param stringToFilter The string value to filter by.
+   * @return A List of String arrays representing the filtered CSV data.
+   */
   public static List<String[]> filterCsv(
-        String inputFile,
-        String columnToFilter,
-        String stringToFilter) {
+      String inputFile,
+      String columnToFilter,
+      String stringToFilter) {
 
     List<String[]> filteredData = new ArrayList<>();
     List<String[]> csvData = readCsv(inputFile);
     int columnIndex = getColumnIndex(csvData.get(0), columnToFilter);
-    
+
     filteredData.add(csvData.get(0)); // Add CSV header
     for (String[] row : csvData.subList(1, csvData.size())) {
       if (row.length > columnIndex && row[columnIndex].contains(stringToFilter)) {
@@ -48,7 +71,13 @@ class CsvUtils {
     return filteredData;
   }
 
-
+  /**
+   * Finds the index of a column in the CSV headers.
+   *
+   * @param headers     The array of header names.
+   * @param columnName  The name of the column to find.
+   * @return The index of the column in the headers, or -1 if not found.
+   */
   private static int getColumnIndex(String[] headers, String columnName) {
     for (int i = 0; i < headers.length; i++) {
       if (headers[i].equalsIgnoreCase(columnName)) {
