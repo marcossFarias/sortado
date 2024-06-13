@@ -5,6 +5,16 @@ import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import com.opencsv.CSVWriter;
 import com.opencsv.exceptions.CsvException;
+
+import org.uepb.model.algorithms.BubbleSort;
+import org.uepb.model.algorithms.CountingSort;
+import org.uepb.model.algorithms.HeapSort;
+import org.uepb.model.algorithms.InsertionSort;
+import org.uepb.model.algorithms.MergeSort;
+import org.uepb.model.algorithms.QuickSort;
+import org.uepb.model.algorithms.QuickSortMedianOfThree;
+import org.uepb.model.algorithms.SelectionSort;
+import org.uepb.model.algorithms.SortingAlgorithm;
 import org.uepb.model.algorithms.sorting.*;
 
 import java.io.FileReader;

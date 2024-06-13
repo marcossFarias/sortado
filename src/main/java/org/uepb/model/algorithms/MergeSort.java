@@ -1,4 +1,4 @@
-package org.uepb.model.algorithms.sorting;
+package org.uepb.model.algorithms;
 
 import java.util.Arrays;
 

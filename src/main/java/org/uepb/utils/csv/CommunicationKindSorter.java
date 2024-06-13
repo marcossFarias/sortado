@@ -4,6 +4,15 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.CSVRecord;
+import org.uepb.model.algorithms.BubbleSort;
+import org.uepb.model.algorithms.CountingSort;
+import org.uepb.model.algorithms.HeapSort;
+import org.uepb.model.algorithms.InsertionSort;
+import org.uepb.model.algorithms.MergeSort;
+import org.uepb.model.algorithms.QuickSort;
+import org.uepb.model.algorithms.QuickSortMedianOfThree;
+import org.uepb.model.algorithms.SelectionSort;
+import org.uepb.model.algorithms.SortingAlgorithm;
 import org.uepb.model.algorithms.sorting.*;
 
 import java.io.BufferedReader;

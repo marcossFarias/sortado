@@ -1,4 +1,4 @@
-package org.uepb.model.algorithms.sorting;
+package org.uepb.model.algorithms;
 
 public class BubbleSort<T extends Comparable<T>> implements SortingAlgorithm<T> {
   @Override
