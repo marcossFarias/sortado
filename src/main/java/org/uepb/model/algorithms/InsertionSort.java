@@ -1,23 +1,34 @@
 package org.uepb.model.algorithms;
 
-public class InsertionSort<T extends Comparable<T>> implements SortingAlgorithm<T> {
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * Implementation of the Insertion Sort algorithm.
+ */
+public class InsertionSort implements SortingAlgorithm {
+  /**
+   * Sorts the given list using the Insertion Sort algorithm.
+   *
+   * @param unsorted the unsorted list
+   * @param <T>      the type of elements in the list, must implement Comparable
+   *                 interface
+   * @return the sorted list
+   */
   @Override
-  public void sort(T[] array) {
-    // Start from the second element of the array
-    for (int i = 1; i < array.length; i++) {
-      // Save the current element
-      T key = array[i];
+  public <T extends Comparable<T>> List<T> sort(List<T> unsorted) {
+    int n = unsorted.size();
+    for (int i = 1; i < n; ++i) {
+      T key = unsorted.get(i);
       int j = i - 1;
 
-      // Compare the current element with the previous elements
-      while (j >= 0 && array[j].compareTo(key) > 0) {
-        // Shift the previous element to the right
-        array[j + 1] = array[j];
-        j--;
+      while (j >= 0 && unsorted.get(j).compareTo(key) > 0) {
+        unsorted.set(j + 1, unsorted.get(j));
+        j = j - 1;
       }
-
-      // Insert the current element in its correct position
-      array[j + 1] = key;
+      unsorted.set(j + 1, key);
     }
+    return unsorted;
   }
 }

@@ -1,44 +1,67 @@
 package org.uepb.model.algorithms;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
-public class MergeSort<T extends Comparable<T>> implements SortingAlgorithm<T> {
+/**
+ * Implementation of the Merge Sort algorithm.
+ */
+public class MergeSort implements SortingAlgorithm {
+  /**
+   * Sorts the given list using the Merge Sort algorithm.
+   *
+   * @param unsorted the unsorted list
+   * @param <T>      the type of elements in the list; must implement Comparable
+   *                 interface
+   * @return a sorted list
+   */
   @Override
-  public void sort(T[] array) {
-    if (array.length <= 1) {
-      return;
+  public <T extends Comparable<T>> List<T> sort(List<T> unsorted) {
+    if (unsorted.size() <= 1) {
+      return unsorted;
     }
-    int mid = array.length / 2;
-    T[] left = Arrays.copyOfRange(array, 0, mid);
-    T[] right = Arrays.copyOfRange(array, mid, array.length);
 
-    MergeSort<T> leftSort = new MergeSort<>();
-    leftSort.sort(left);
-    MergeSort<T> rightSort = new MergeSort<>();
-    rightSort.sort(right);
+    int mid = unsorted.size() / 2;
+    List<T> left = sort(unsorted.subList(0, mid));
+    List<T> right = sort(unsorted.subList(mid, unsorted.size()));
 
-    merge(array, left, right);
+    return merge(left, right);
   }
 
-  private void merge(T[] array, T[] left, T[] right) {
-    int i = 0;
-    int j = 0;
-    int k = 0;
+  /**
+   * Merges two sorted lists into a single sorted list.
+   *
+   * @param left  the first sorted list
+   * @param right the second sorted list
+   * @param <T>   the type of elements in the lists; must implement Comparable
+   *              interface
+   * @return a merged sorted list
+   */
+  private <T extends Comparable<T>> List<T> merge(List<T> left, List<T> right) {
+    List<T> result = new ArrayList<>();
+    int leftIndex = 0;
+    int rightIndex = 0;
 
-    while (i < left.length && j < right.length) {
-      if (left[i].compareTo(right[j]) <= 0) {
-        array[k++] = left[i++];
+    while (leftIndex < left.size() && rightIndex < right.size()) {
+      if (left.get(leftIndex).compareTo(right.get(rightIndex)) < 0) {
+        result.add(left.get(leftIndex));
+        leftIndex++;
       } else {
-        array[k++] = right[j++];
+        result.add(right.get(rightIndex));
+        rightIndex++;
       }
     }
 
-    while (i < left.length) {
-      array[k++] = left[i++];
+    while (leftIndex < left.size()) {
+      result.add(left.get(leftIndex));
+      leftIndex++;
     }
 
-    while (j < right.length) {
-      array[k++] = right[j++];
+    while (rightIndex < right.size()) {
+      result.add(right.get(rightIndex));
+      rightIndex++;
     }
+
+    return result;
   }
 }
