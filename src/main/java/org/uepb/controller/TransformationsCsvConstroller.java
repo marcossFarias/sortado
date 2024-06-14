@@ -2,6 +2,7 @@ package org.uepb.controller;
 
 import java.util.logging.Logger;
 import org.uepb.service.CsvFilterService;
+import org.uepb.utils.FileUtils;
 
 /**
  * This class is responsible for controlling transformations on CSV files related to accidents.
@@ -33,6 +34,8 @@ public class TransformationsCsvConstroller {
    * Main method to start transformations on CSV files.
    */
   public static void startCsvTransformations() {
+    FileUtils.deleteFilesInDirectory("resources/transformations");
+  
     logger.info("Starting CSV transformations...");
     filterAlcoholAccidents();
     filterCrashKind();
