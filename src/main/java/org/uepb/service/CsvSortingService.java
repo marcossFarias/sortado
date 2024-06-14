@@ -27,15 +27,13 @@ public class CsvSortingService {
   
   static {
     sortAlgorithms = new HashMap<>();
+    sortAlgorithms.put("selection", new SelectionSort());
     sortAlgorithms.put("insertion", new InsertionSort());
     sortAlgorithms.put("merge", new MergeSort());
-    sortAlgorithms.put("selection", new SelectionSort());
     sortAlgorithms.put("quick", new QuickSort());
+    sortAlgorithms.put("quickMd3", new QuickSortMedianOfThree());
     //sortAlgorithms.put("counting", new CountingSort());
     sortAlgorithms.put("heap", new HeapSort());
-    sortAlgorithms.put("bublle", new BubbleSort());
-    sortAlgorithms.put("quickMd3", new QuickSortMedianOfThree());
-
   }
 
   /**
