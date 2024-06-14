@@ -1,10 +1,19 @@
 package org.uepb.model.algorithms;
 
-import java.util.Comparator;
 import java.util.List;
 
+/**
+ * Implementation of the Insertion Sort algorithm.
+ */
 public class QuickSort implements SortingAlgorithm {
-
+  /**
+   * Sorts the given list using the Quick Sort algorithm.
+   *
+   * @param unsorted the unsorted list
+   * @param <T>      the type of elements in the list; must implement Comparable
+   *                 interface
+   * @return a sorted list
+   */
   @Override
   public <T extends Comparable<T>> List<T> sort(List<T> unsorted) {
     quickSort(unsorted, 0, unsorted.size() - 1);
