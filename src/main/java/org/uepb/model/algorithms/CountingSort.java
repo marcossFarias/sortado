@@ -1,30 +1,34 @@
 package org.uepb.model.algorithms;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-public class CountingSort<T extends Comparable<T>> implements SortingAlgorithm<T> {
+/**
+ * Implementation of the Counting Sort algorithm.
+ */
+public class CountingSort implements SortingAlgorithm {
+  /**
+   * Sorts the given list using the Counting Sort algorithm.
+   *
+   * @param unsorted the unsorted list
+   * @param <T>      the type of elements in the list, must implement Comparable
+   *                 interface
+   * @return the sorted list
+   */
   @Override
-  public void sort(T[] array) {
-    if (array == null || array.length == 0) {
-      return;
+  public <T extends Comparable<T>> List<T> sort(List<T> unsorted) {
+    if (unsorted == null || unsorted.isEmpty()) {
+      return new ArrayList<>();
     }
 
-    T max = array[0];
-    T min = array[0];
-
-    for (T t : array) {
-      if (t.compareTo(max) > 0) {
-        max = t;
-      }
-      if (t.compareTo(min) < 0) {
-        min = t;
-      }
-    }
+    T max = Collections.max(unsorted);
+    T min = Collections.min(unsorted);
 
     int range = max.compareTo(min) + 1;
     int[] countArray = new int[range];
 
-    for (T t : array) {
+    for (T t : unsorted) {
       countArray[t.compareTo(min)]++;
     }
 
@@ -32,13 +36,13 @@ public class CountingSort<T extends Comparable<T>> implements SortingAlgorithm<T
       countArray[i] += countArray[i - 1];
     }
 
-    T[] sortedArray = Arrays.copyOf(array, array.length);
+    List<T> sortedList = new ArrayList<>(unsorted.size());
 
-    for (int i = array.length - 1; i >= 0; i--) {
-      sortedArray[countArray[array[i].compareTo(min)] - 1] = array[i];
-      countArray[array[i].compareTo(min)]--;
+    for (int i = unsorted.size() - 1; i >= 0; i--) {
+      sortedList.set(countArray[unsorted.get(i).compareTo(min)] - 1, unsorted.get(i));
+      countArray[unsorted.get(i).compareTo(min)]--;
     }
 
-    System.arraycopy(sortedArray, 0, array, 0, array.length);
+    return sortedList;
   }
 }

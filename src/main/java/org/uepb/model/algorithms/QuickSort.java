@@ -3,7 +3,7 @@ package org.uepb.model.algorithms;
 import java.util.List;
 
 /**
- * Implementation of the Insertion Sort algorithm.
+ * Implementation of the Quick Sort algorithm.
  */
 public class QuickSort implements SortingAlgorithm {
   /**
