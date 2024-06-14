@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.uepb.model.algorithms.BubbleSort;
 import org.uepb.model.algorithms.CountingSort;
 import org.uepb.model.algorithms.HeapSort;
 import org.uepb.model.algorithms.InsertionSort;
@@ -31,6 +32,7 @@ public class CsvSortingService {
     sortAlgorithms.put("quick", new QuickSort());
     //sortAlgorithms.put("counting", new CountingSort());
     sortAlgorithms.put("heap", new HeapSort());
+    sortAlgorithms.put("bublle", new BubbleSort());
   }
 
   /**
