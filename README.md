@@ -25,7 +25,8 @@ Todos os arquivos gerados pelo código ficam em [resources](resources).
 
 ## Roadmap
 
-* [x] Trnaformações no datset da kaggle [AccidentCsvConstroller](src/main/java/org/uepb/controller/AccidentCsvConstroller.java)
+* [x] Transformações no dataset da kaggle [AccidentCsvConstroller](src/main/java/org/uepb/controller/AccidentCsvConstroller.java)
+* [ ] Fazer a lógica de gerar o pior e melhor caso (médio já é o próprio dataset)
 * [ ] Ordenar o arquivo resultante da primera transformação por data
 * [ ] Ordenar o arquivo resultante da primera transformação por tempo
 * [ ] Ordenar o arquivo resultante da primera transformação por nome
