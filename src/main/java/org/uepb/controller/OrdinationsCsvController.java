@@ -5,7 +5,7 @@ import java.util.Map;
 import org.uepb.model.algorithms.InsertionSort;
 import org.uepb.model.algorithms.MergeSort;
 import org.uepb.model.algorithms.SortingAlgorithm;
-import org.uepb.service.SortingService;
+import org.uepb.service.CsvSortingService;
 
 /**
  * This class is responsible for managing sorting algorithms and their usage in
@@ -40,7 +40,7 @@ public class OrdinationsCsvController {
       String outputFile,
       String columnToSort,
       SortingAlgorithm algorithm) {
-    SortingService sortingService = new SortingService(algorithm);
+    CsvSortingService sortingService = new CsvSortingService(algorithm);
     sortingService.sortCsvFileByColumn(inputFile, outputFile, columnToSort);
   }
 

@@ -8,7 +8,7 @@ import org.uepb.utils.CsvUtils;
 /**
  * Sorts CSV files by a specified column using a given sorting algorithm.
  */
-public class SortingService {
+public class CsvSortingService {
 
   private final SortingAlgorithm sortingAlgorithm;
 
@@ -17,7 +17,7 @@ public class SortingService {
    *
    * @param sortingAlgorithm the sorting algorithm to be used
    */
-  public SortingService(SortingAlgorithm sortingAlgorithm) {
+  public CsvSortingService(SortingAlgorithm sortingAlgorithm) {
     this.sortingAlgorithm = sortingAlgorithm;
   }
   
