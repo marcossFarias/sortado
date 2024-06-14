@@ -1,5 +1,16 @@
 package org.uepb.model.algorithms;
 
-public interface SortingAlgorithm<T extends Comparable<T>> {
-  void sort(T[] array);
+import java.util.List;
+
+/**
+ * The common interface of most sorting algorithms.
+ */
+public interface SortingAlgorithm {
+  /**
+   * Main method for sorting lists.
+   *
+   * @param unsorted - a list to be sorted
+   * @return a sorted list
+   */
+  <T extends Comparable<T>> List<T> sort(List<T> unsorted);
 }
