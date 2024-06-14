@@ -77,7 +77,7 @@ public class CsvUtils {
    * @param columnName  The name of the column to find.
    * @return The index of the column in the headers, or -1 if not found.
    */
-  private static int getColumnIndex(String[] headers, String columnName) {
+  public static int getColumnIndex(String[] headers, String columnName) {
     for (int i = 0; i < headers.length; i++) {
       if (headers[i].equalsIgnoreCase(columnName)) {
         return i;
