@@ -12,15 +12,14 @@ import org.uepb.service.CsvSortingService;
  * CSV operations.
  */
 public class OrdinationsCsvController {
-  private Map<String, SortingAlgorithm> sortAlgorithms;
+  private static Map<String, SortingAlgorithm> sortAlgorithms;
 
-  /**
-   * Constructor for creating an instance of OrdinationsCsvController.
-   * Initializes the sortAlgorithms map with sorting algorithms.
-   */
-  public OrdinationsCsvController() {
-    this.sortAlgorithms = new HashMap<>();
+  private OrdinationsCsvController() {
+    throw new IllegalStateException("Utility class");
+  }
 
+  static {
+    sortAlgorithms = new HashMap<>();
     sortAlgorithms.put("bubble", new InsertionSort());
     sortAlgorithms.put("quick", new MergeSort());
   }
@@ -35,7 +34,7 @@ public class OrdinationsCsvController {
    * @param columnToSort The name of the column to sort.
    * @param algorithm    The sorting algorithm to be used.
    */
-  public void sortCsvFileByColumnWithAlgorithm(
+  public static void sortCsvFileByColumnWithAlgorithm(
       String inputFile,
       String outputFile,
       String columnToSort,
@@ -53,7 +52,7 @@ public class OrdinationsCsvController {
    *                     written.
    * @param columnToSort The name of the column to sort.
    */
-  public void sortCsvFileByColumnForAllAlgorithms(
+  public static void sortCsvFileByColumnForAllAlgorithms(
       String inputFile,
       String outputFile,
       String columnToSort) {
