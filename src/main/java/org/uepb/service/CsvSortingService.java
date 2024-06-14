@@ -11,6 +11,7 @@ import org.uepb.model.algorithms.HeapSort;
 import org.uepb.model.algorithms.InsertionSort;
 import org.uepb.model.algorithms.MergeSort;
 import org.uepb.model.algorithms.QuickSort;
+import org.uepb.model.algorithms.QuickSortMedianOfThree;
 import org.uepb.model.algorithms.SelectionSort;
 import org.uepb.model.algorithms.SortingAlgorithm;
 import org.uepb.utils.CsvUtils;
@@ -33,6 +34,8 @@ public class CsvSortingService {
     //sortAlgorithms.put("counting", new CountingSort());
     sortAlgorithms.put("heap", new HeapSort());
     sortAlgorithms.put("bublle", new BubbleSort());
+    sortAlgorithms.put("quickMd3", new QuickSortMedianOfThree());
+
   }
 
   /**

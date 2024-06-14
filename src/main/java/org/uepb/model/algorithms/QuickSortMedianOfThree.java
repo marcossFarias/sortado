@@ -1,12 +1,39 @@
 package org.uepb.model.algorithms;
 
-public class QuickSortMedianOfThree<T extends Comparable<T>> implements SortingAlgorithm<T> {
+import java.util.List;
+
+/**
+ * Implementation of the Quick Sort Median Of Three algorithm.
+ */
+public class QuickSortMedianOfThree implements SortingAlgorithm {
+  /**
+   * Sorts the given list using the Quick Sort Median Of Three algorithm.
+   *
+   * @param unsorted the unsorted list
+   * @param <T>      the type of elements in the list; must implement Comparable
+   *                 interface
+   * @return a sorted list
+   */
   @Override
-  public void sort(T[] array) {
+  public <T extends Comparable<T>> List<T> sort(List<T> unsorted) {
+    if (unsorted == null || unsorted.isEmpty()) {
+      return unsorted;
+    }
+
+    @SuppressWarnings("unchecked")
+    T[] array = (T[]) unsorted.toArray(new Comparable[unsorted.size()]);
+
     quickSort(array, 0, array.length - 1);
+
+    unsorted.clear();
+    for (T element : array) {
+      unsorted.add(element);
+    }
+
+    return unsorted;
   }
 
-  private void quickSort(T[] array, int low, int high) {
+  private <T extends Comparable<T>> void quickSort(T[] array, int low, int high) {
     if (low >= high) {
       return;
     }
@@ -15,7 +42,7 @@ public class QuickSortMedianOfThree<T extends Comparable<T>> implements SortingA
     quickSort(array, pivotIndex + 1, high);
   }
 
-  private int partition(T[] array, int low, int high) {
+  private <T extends Comparable<T>> int partition(T[] array, int low, int high) {
     T pivot = medianOfThree(array, low, high);
     int i = low;
     for (int j = low; j < high; j++) {
@@ -28,7 +55,7 @@ public class QuickSortMedianOfThree<T extends Comparable<T>> implements SortingA
     return i;
   }
 
-  private T medianOfThree(T[] array, int low, int high) {
+  private <T extends Comparable<T>> T medianOfThree(T[] array, int low, int high) {
     int mid = (low + high) / 2;
     if (array[low].compareTo(array[mid]) > 0) {
       if (array[mid].compareTo(array[high]) < 0) {
@@ -43,7 +70,7 @@ public class QuickSortMedianOfThree<T extends Comparable<T>> implements SortingA
     }
   }
 
-  private void swap(T[] array, int i, int j) {
+  private <T extends Comparable<T>> void swap(T[] array, int i, int j) {
     T temp = array[i];
     array[i] = array[j];
     array[j] = temp;
