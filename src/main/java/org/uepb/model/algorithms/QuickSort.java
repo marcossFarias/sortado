@@ -1,36 +1,40 @@
 package org.uepb.model.algorithms;
 
-public class QuickSort<T extends Comparable<T>> implements SortingAlgorithm<T> {
+import java.util.Comparator;
+import java.util.List;
+
+public class QuickSort implements SortingAlgorithm {
+
   @Override
-  public void sort(T[] array) {
-    quickSort(array, 0, array.length - 1);
+  public <T extends Comparable<T>> List<T> sort(List<T> unsorted) {
+    quickSort(unsorted, 0, unsorted.size() - 1);
+    return unsorted;
   }
 
-  private void quickSort(T[] array, int low, int high) {
-    if (low >= high) {
-      return;
+  private <T extends Comparable<T>> void quickSort(List<T> arr, int low, int high) {
+    if (low < high) {
+      int pi = partition(arr, low, high);
+      quickSort(arr, low, pi - 1);
+      quickSort(arr, pi + 1, high);
     }
-    int pivotIndex = partition(array, low, high);
-    quickSort(array, low, pivotIndex - 1);
-    quickSort(array, pivotIndex + 1, high);
   }
 
-  private int partition(T[] array, int low, int high) {
-    T pivot = array[high];
-    int i = low;
+  private <T extends Comparable<T>> int partition(List<T> arr, int low, int high) {
+    T pivot = arr.get(high);
+    int i = low - 1;
     for (int j = low; j < high; j++) {
-      if (array[j].compareTo(pivot) <= 0) {
-        swap(array, i, j);
+      if (arr.get(j).compareTo(pivot) <= 0) {
         i++;
+        swap(arr, i, j);
       }
     }
-    swap(array, i, high);
-    return i;
+    swap(arr, i + 1, high);
+    return i + 1;
   }
 
-  private void swap(T[] array, int i, int j) {
-    T temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
+  private <T extends Comparable<T>> void swap(List<T> arr, int i, int j) {
+    T temp = arr.get(i);
+    arr.set(i, arr.get(j));
+    arr.set(j, temp);
   }
 }

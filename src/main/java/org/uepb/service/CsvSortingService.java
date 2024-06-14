@@ -25,6 +25,8 @@ public class CsvSortingService {
     sortAlgorithms.put("insertion", new InsertionSort());
     sortAlgorithms.put("merge", new MergeSort());
     sortAlgorithms.put("selection", new SelectionSort());
+    sortAlgorithms.put("quick", new QuickSort());
+
   }
 
   /**
