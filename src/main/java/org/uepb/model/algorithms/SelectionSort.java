@@ -6,7 +6,15 @@ import java.util.List;
 /**
  * Implementation of Selection Sort algorithm.
  */
-public class SelectionSort implements SortingAlgorithm{
+public class SelectionSort implements SortingAlgorithm {
+  /**
+   * Sorts the given list using the Selection Sort algorithm.
+   *
+   * @param unsorted the unsorted list
+   * @param <T>      the type of elements in the list; must implement Comparable
+   *                 interface
+   * @return a sorted list
+   */
   @Override
   public <T extends Comparable<T>> List<T> sort(List<T> unsorted) {
     List<T> sortedList = new ArrayList<>(unsorted);
