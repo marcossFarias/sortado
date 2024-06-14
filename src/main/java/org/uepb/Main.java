@@ -1,9 +1,9 @@
 package org.uepb;
 
-import org.uepb.controller.AccidentCsvConstroller;
+import org.uepb.controller.TransformationsCsvConstroller;
 
 public class Main {
   public static void main(String[] args) {
-    AccidentCsvConstroller.startCsvTransformations();
+    TransformationsCsvConstroller.startCsvTransformations();
   }
 }
