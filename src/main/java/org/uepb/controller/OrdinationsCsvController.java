@@ -1,5 +1,8 @@
 package org.uepb.controller;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 import org.uepb.service.CsvSortingService;
 import org.uepb.utils.FileUtils;
@@ -16,40 +19,55 @@ public class OrdinationsCsvController {
   private static final Logger logger =
       Logger.getLogger(OrdinationsCsvController.class.getName());
 
+  private static final String TIME_COLUMN = "time";
+  private static final String DATE_COLUMN = "date";
+  private static final String LEXICAL_COLUMN = "communication_kind";
+
   public static void startCsvOrdinations() {
     FileUtils.deleteFilesInDirectory("resources/ordinations");
     
     logger.info("Starting CSV ordinations...");
-    ordinateByTime();
-    ordinateByDate();
-    ordinateByLexical();
+
+    List<String> filePaths = getFilePaths();
+    for (String filePath : filePaths) {
+      ordinateByTime(filePath);
+      ordinateByDate(filePath);
+      ordinateByLexical(filePath);
+    }
+
     logger.info("CSV ordinations completed.");
   }
 
-  private static void ordinateByTime() {
+  private static List<String> getFilePaths() {
+    List<String> filePaths = new ArrayList<>();
+    filePaths.add("resources/test.csv");
+    return filePaths;
+  }
+
+  private static void ordinateByTime(String filePath) {
     logger.info("Sorting CSV file by time...");
     CsvSortingService.sortCsvFileByColumnForAllAlgorithms(
-        "resources/test.csv",
-        "resources/ordinations/accidents_NCBMV_time",
-        "time");
+        filePath,
+        "resources/ordinations/accidents_NCBMV_" + TIME_COLUMN,
+        TIME_COLUMN);
     logger.info("CSV file sorted by time.");
   }
 
-  private static void ordinateByDate() {
+  private static void ordinateByDate(String filePath) {
     logger.info("Sorting CSV file by date...");
     CsvSortingService.sortCsvFileByColumnForAllAlgorithms(
-        "resources/test.csv",
-        "resources/ordinations/accidents_NCBMV_date",
-        "date");
+        filePath,
+        "resources/ordinations/accidents_NCBMV_" + DATE_COLUMN,
+        DATE_COLUMN);
     logger.info("CSV file sorted by date.");
   }
 
-  private static void ordinateByLexical() {
+  private static void ordinateByLexical(String filePath) {
     logger.info("Sorting CSV file by lexical...");
     CsvSortingService.sortCsvFileByColumnForAllAlgorithms(
-        "resources/test.csv",
-        "resources/ordinations/accidents_NCBMV_communication_kind",
-        "communication_kind");
+        filePath,
+        "resources/ordinations/accidents_NCBMV_" + LEXICAL_COLUMN,
+        LEXICAL_COLUMN);
     logger.info("CSV file sorted by date.");
   }
 }
