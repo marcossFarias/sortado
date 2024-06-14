@@ -23,6 +23,10 @@ public class OrdinationsCsvController {
   private static final String DATE_COLUMN = "date";
   private static final String LEXICAL_COLUMN = "communication_kind";
 
+  /**
+   * Deletes existing files in the "resources/ordinations" directory
+   * and performs CSV ordinations by time, date, and lexical order.
+   */
   public static void startCsvOrdinations() {
     FileUtils.deleteFilesInDirectory("resources/ordinations");
     

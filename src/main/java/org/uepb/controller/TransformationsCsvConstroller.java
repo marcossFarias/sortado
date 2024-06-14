@@ -31,7 +31,9 @@ public class TransformationsCsvConstroller {
       "resources/transformations/drunk_pedestrians.csv";
 
   /**
-   * Main method to start transformations on CSV files.
+   * Deletes existing files in the "resources/transformations" directory
+   * and performs CSV transformations by AlcoholAccidents, CrashKind,
+   * AccidentKind and Pedestrian Condition.
    */
   public static void startCsvTransformations() {
     FileUtils.deleteFilesInDirectory("resources/transformations");
