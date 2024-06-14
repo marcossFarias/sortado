@@ -4,6 +4,10 @@ import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,9 +42,18 @@ public class CsvUtils {
    * @param data       The data to be written to the CSV file.
    */
   public static void writeCsv(String outputFile, List<String[]> data) {
-    try (CSVWriter writer = new CSVWriter(new FileWriter(outputFile))) {
-      writer.writeAll(data);
-    } catch (Exception e) {
+    try {
+      Path outputPath = Paths.get(outputFile);
+      Path outputDir = outputPath.getParent();
+      
+      if (outputDir != null && !Files.exists(outputDir)) {
+        Files.createDirectories(outputDir);
+      }
+
+      try (CSVWriter writer = new CSVWriter(new FileWriter(outputFile))) {
+        writer.writeAll(data);
+      }
+    } catch (IOException e) {
       e.printStackTrace();
     }
   }
