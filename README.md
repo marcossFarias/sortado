@@ -3,9 +3,12 @@
 ## Como instalar
 
 * instale a ferramenta git no seu computador (<https://git-scm.com/downloads>)
-* rode o comando `git clone xxxxxx` em um diretório de sua escolha
+* rode o comando `git clone https://github.com/marcossFarias/sortado.git` em um diretório de sua escolha
 * instale o editor de código VSCode no seu computador (<https://code.visualstudio.com/Download>)
 * abra o diretório onde você clonou o projeto com o VSCode
+* instale o pack de extensões "Extension Pack For Java" (<https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack>)
+
+> Esses passos foram testados a risca em uma instalçao limpa do PopOS 22.04
 
 ## Como usar
 
@@ -16,7 +19,10 @@ e `road_accidents_czechia_2016_2022.csv` disponíveis em <https://www.kaggle.com
 
 ## Comportamneto
 
-* toda vez que o `Main.java` é executado o código exclui os arquivos dentro de transformations e ordinations antes de performar outras operações.
+* toda vez que o `Main.java` é executado o código exclui os arquivos dentro de [transformations](resources/transformations/) e [ordinations](resources/ordinations) antes de performar outras operações.
+* o código olha os arquivos dentro da pasta [kaggle](resources/kaggle/) > aplica os filtros requisitados > coloca os arquivos resultantes em [transformations](resources/transformations/)
+* o código procura pelo arquivo [accidents_NCBMV.csv](resources/transformations/accidents_NCBMV.csv) > gera o pior, o melhor e o caso base (que já é o arquivo em si) > coloca os arquivos em [to_ordinate](resources/ordinations/to_ordinate)
+* aplica para cada arquivo em [to_ordinate](resources/ordinations/to_ordinate) todos os algoritmos de ordenação pedidos gerando logs de deputação para que o usuário acompanhe a execução (estes incluem o tempo gasto).
 
 ## Modularização
 

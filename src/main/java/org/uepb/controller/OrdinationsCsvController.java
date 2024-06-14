@@ -23,7 +23,7 @@ public class OrdinationsCsvController {
 
   private static final Logger logger = Logger.getLogger(OrdinationsCsvController.class.getName());
 
-  private static final String CSV_FILE = "resources/test.csv";
+  private static final String CSV_FILE = "resources/transformations/accidents_NCBMV.csv";
   private static final String TIME_COLUMN = "time";
   private static final String DATE_COLUMN = "date";
   private static final String LEXICAL_COLUMN = "communication_kind";
