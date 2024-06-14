@@ -14,6 +14,10 @@ e `road_accidents_czechia_2016_2022.csv` disponíveis em <https://www.kaggle.com
 
 * abra o arquivo `Main.java` e execute ele
 
+## Comportamneto
+
+* toda vez que o `Main.java` é executado o código exclui os arquivos dentro de transformations e ordinations antes de performar outras operações.
+
 ## Modularização
 
 O projeto está usando a arquitetura MVC.
@@ -23,14 +27,8 @@ Todos os arquivos gerados pelo código ficam em [resources](resources).
 * Os das transformações feitas no dataset da kaggle ficam em [transformations](resources/transformations).
 * Os das ordenações, que são baseadas no arquivo resultante da primeira transformação, ficam em [ordinations](resources/ordinations).
 
-## Roadmap
+## Padronização do código
 
-* [x] Transformações no dataset da kaggle [AccidentCsvConstroller](src/main/java/org/uepb/controller/AccidentCsvConstroller.java)
-* [ ] Fazer a lógica de gerar o pior e melhor caso (médio já é o próprio dataset)
-* [ ] Ordenar o arquivo resultante da primera transformação por data
-* [ ] Ordenar o arquivo resultante da primera transformação por tempo
-* [ ] Ordenar o arquivo resultante da primera transformação por nome
+Todos os códigos, comentários e javadoc estão em inglês e seguem a padronização proposta pelo Google (<https://google.github.io/styleguide/javaguide.html>)¹
 
-* [ ] Adiconar mais logs
-* [ ] Tratar melhor erros
-* [ ] Fazer um arquivo make
+¹usando a extensão sonar lint
