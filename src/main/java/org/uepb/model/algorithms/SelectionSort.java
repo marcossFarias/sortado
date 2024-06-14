@@ -1,20 +1,32 @@
 package org.uepb.model.algorithms;
 
-public class SelectionSort<T extends Comparable<T>> implements SortingAlgorithm<T> {
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Implementation of Selection Sort algorithm.
+ */
+public class SelectionSort implements SortingAlgorithm{
   @Override
-  public void sort(T[] array) {
-    for (int i = 0; i < array.length - 1; i++) {
+  public <T extends Comparable<T>> List<T> sort(List<T> unsorted) {
+    List<T> sortedList = new ArrayList<>(unsorted);
+
+    for (int i = 0; i < sortedList.size() - 1; i++) {
       int minIndex = i;
-      T minValue = array[i];
-      for (int j = i + 1; j < array.length; j++) {
-        if (array[j].compareTo(minValue) < 0) {
+      T minValue = sortedList.get(i);
+      for (int j = i + 1; j < sortedList.size(); j++) {
+        if (sortedList.get(j).compareTo(minValue) < 0) {
           minIndex = j;
-          minValue = array[j];
+          minValue = sortedList.get(j);
         }
       }
-      T temp = array[minIndex];
-      array[minIndex] = array[i];
-      array[i] = temp;
+      if (minIndex != i) {
+        T temp = sortedList.get(minIndex);
+        sortedList.set(minIndex, sortedList.get(i));
+        sortedList.set(i, temp);
+      }
     }
+
+    return sortedList;
   }
 }

@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 import org.uepb.model.algorithms.InsertionSort;
 import org.uepb.model.algorithms.MergeSort;
+import org.uepb.model.algorithms.QuickSort;
+import org.uepb.model.algorithms.SelectionSort;
 import org.uepb.model.algorithms.SortingAlgorithm;
 import org.uepb.utils.CsvUtils;
 
@@ -22,6 +24,7 @@ public class CsvSortingService {
     sortAlgorithms = new HashMap<>();
     sortAlgorithms.put("insertion", new InsertionSort());
     sortAlgorithms.put("merge", new MergeSort());
+    sortAlgorithms.put("selection", new SelectionSort());
   }
 
   /**
