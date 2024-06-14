@@ -1,6 +1,11 @@
 package org.uepb.utils;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 /**
  * This class provides utility methods for file operations.
@@ -38,6 +43,28 @@ public class FileUtils {
     } else {
       System.err.println("The specified directory does not exist or is not a directory.");
       return false;
+    }
+  }
+
+  public static void renameAndCopyFile(
+        String inputFilePath,
+        String additionalNamePart,
+        String destinationDirectory) {
+    try {
+      File inputFile = new File(inputFilePath);
+      if (!inputFile.exists()) {
+        return;
+      }
+
+      String outputFileName = inputFile.getName().replace(".csv", additionalNamePart + ".csv");
+
+      String outputFilePath = destinationDirectory + File.separator + outputFileName;
+      Path destinationPath = Paths.get(outputFilePath);
+
+      Files.copy(Paths.get(inputFilePath), destinationPath, StandardCopyOption.REPLACE_EXISTING);
+
+    } catch (IOException e) {
+      System.out.println(e.getMessage());
     }
   }
 }
