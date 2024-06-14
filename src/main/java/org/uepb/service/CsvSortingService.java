@@ -20,8 +20,8 @@ public class CsvSortingService {
   
   static {
     sortAlgorithms = new HashMap<>();
-    sortAlgorithms.put("bubble", new InsertionSort());
-    sortAlgorithms.put("quick", new MergeSort());
+    sortAlgorithms.put("insertion", new InsertionSort());
+    sortAlgorithms.put("merge", new MergeSort());
   }
 
   /**
