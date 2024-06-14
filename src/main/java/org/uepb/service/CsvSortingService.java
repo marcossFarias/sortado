@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 
+import org.uepb.controller.TransformationsCsvConstroller;
 import org.uepb.model.algorithms.BubbleSort;
 import org.uepb.model.algorithms.CountingSort;
 import org.uepb.model.algorithms.HeapSort;
@@ -24,7 +26,10 @@ public class CsvSortingService {
   private final SortingAlgorithm sortingAlgorithm;
 
   private static Map<String, SortingAlgorithm> sortAlgorithms;
-  
+
+  private static final Logger logger =
+      Logger.getLogger(CsvSortingService.class.getName());
+
   static {
     sortAlgorithms = new HashMap<>();
     sortAlgorithms.put("selection", new SelectionSort());
@@ -32,7 +37,7 @@ public class CsvSortingService {
     sortAlgorithms.put("merge", new MergeSort());
     sortAlgorithms.put("quick", new QuickSort());
     sortAlgorithms.put("quickMd3", new QuickSortMedianOfThree());
-    //sortAlgorithms.put("counting", new CountingSort());
+    // sortAlgorithms.put("counting", new CountingSort());
     sortAlgorithms.put("heap", new HeapSort());
   }
 
@@ -44,19 +49,21 @@ public class CsvSortingService {
   public CsvSortingService(SortingAlgorithm sortingAlgorithm) {
     this.sortingAlgorithm = sortingAlgorithm;
   }
-  
+
   /**
-   * Sorts a CSV file by the specified column and writes the sorted data to a new CSV file.
+   * Sorts a CSV file by the specified column and writes the sorted data to a new
+   * CSV file.
    *
    * @param inputFile    The path to the input CSV file.
-   * @param outputFile   The path to the output CSV file where sorted data will be written
+   * @param outputFile   The path to the output CSV file where sorted data will be
+   *                     written
    * @param columnToSort The name of the column to sort.
    */
   public void sortCsvFileByColumn(
       String inputFile,
       String outputFile,
       String columnToSort) {
-        
+
     List<String[]> data = CsvUtils.readCsv(inputFile);
 
     int columnIndex = CsvUtils.getColumnIndex(data.get(0), columnToSort);
@@ -85,12 +92,14 @@ public class CsvSortingService {
   private static class SortableStringArray implements Comparable<SortableStringArray> {
     private final String[] stringArray;
     private final int index;
-    
+
     /**
-     * Constructs a SortableStringArray object with the specified string array and index.
+     * Constructs a SortableStringArray object with the specified string array and
+     * index.
      *
      * @param stringArray the array of strings to be sorted
-     * @param index the index of the string within the array to be used for comparison
+     * @param index       the index of the string within the array to be used for
+     *                    comparison
      */
     public SortableStringArray(String[] stringArray, int index) {
       this.stringArray = stringArray;
@@ -109,7 +118,7 @@ public class CsvSortingService {
     @Override
     public int compareTo(SortableStringArray other) {
       String thisValue = stringArray[index].toLowerCase();
-      String otherValue = other.stringArray[index].toLowerCase(); 
+      String otherValue = other.stringArray[index].toLowerCase();
       return thisValue.compareTo(otherValue);
     }
   }
@@ -150,11 +159,18 @@ public class CsvSortingService {
       String algorithmName = entry.getKey();
       SortingAlgorithm algorithm = entry.getValue();
 
+      long startTime = System.nanoTime();
+
       sortCsvFileByColumnWithAlgorithm(
           inputFile,
           outputFile + "_" + algorithmName + ".csv",
           columnToSort,
           algorithm);
+
+      long endTime = System.nanoTime();
+      long duration = (endTime - startTime) / 1_000_000;
+
+      logger.info("Sorting with " + algorithmName + " completed in " + duration + " milliseconds.");
     }
   }
 }
