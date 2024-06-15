@@ -2,6 +2,7 @@ package org.uepb.model.algorithms;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * Implementation of the Merge Sort algorithm.
@@ -28,38 +29,34 @@ public class MergeSort implements SortingAlgorithm {
     return merge(left, right);
   }
 
-  /**
-   * Merges two sorted lists into a single sorted list.
-   *
-   * @param left  the first sorted list
-   * @param right the second sorted list
-   * @param <T>   the type of elements in the lists; must implement Comparable
-   *              interface
-   * @return a merged sorted list
-   */
   private <T extends Comparable<T>> List<T> merge(List<T> left, List<T> right) {
     List<T> result = new ArrayList<>();
-    int leftIndex = 0;
-    int rightIndex = 0;
+    Stack<T> leftStack = new Stack<>();
+    Stack<T> rightStack = new Stack<>();
 
-    while (leftIndex < left.size() && rightIndex < right.size()) {
-      if (left.get(leftIndex).compareTo(right.get(rightIndex)) < 0) {
-        result.add(left.get(leftIndex));
-        leftIndex++;
+    for (T element : left) {
+      leftStack.push(element);
+    }
+    for (T element : right) {
+      rightStack.push(element);
+    }
+
+    while (!leftStack.isEmpty() && !rightStack.isEmpty()) {
+      T leftTop = leftStack.peek();
+      T rightTop = rightStack.peek();
+
+      if (leftTop.compareTo(rightTop) < 0) {
+        result.add(leftStack.pop());
       } else {
-        result.add(right.get(rightIndex));
-        rightIndex++;
+        result.add(rightStack.pop());
       }
     }
 
-    while (leftIndex < left.size()) {
-      result.add(left.get(leftIndex));
-      leftIndex++;
+    while (!leftStack.isEmpty()) {
+      result.add(leftStack.pop());
     }
-
-    while (rightIndex < right.size()) {
-      result.add(right.get(rightIndex));
-      rightIndex++;
+    while (!rightStack.isEmpty()) {
+      result.add(rightStack.pop());
     }
 
     return result;
