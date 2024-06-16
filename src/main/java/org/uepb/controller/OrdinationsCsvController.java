@@ -23,7 +23,7 @@ public class OrdinationsCsvController {
 
   private static final Logger logger = Logger.getLogger(OrdinationsCsvController.class.getName());
 
-  private static final String CSV_FILE = "resources/transformations/accidents_NCBMV.csv";
+  private static final String CSV_FILE = "resources/kaggle/accidents_NCBMV.csv";
   private static final String TIME_COLUMN = "time";
   private static final String DATE_COLUMN = "date";
   private static final String LEXICAL_COLUMN = "communication_kind";
@@ -43,9 +43,13 @@ public class OrdinationsCsvController {
 
     List<String> filePaths = getFilePaths();
     for (String filePath : filePaths) {
-      ordinateByTime(filePath);
-      ordinateByDate(filePath);
-      ordinateByLexical(filePath);
+      if (filePath.contains(TIME_COLUMN)) {
+        ordinateByTime(filePath);
+      } else if (filePath.contains(DATE_COLUMN)) {
+        ordinateByDate(filePath);
+      } else if (filePath.contains(LEXICAL_COLUMN)) {
+        ordinateByLexical(filePath);
+      }
     }
 
     logger.info("CSV ordinations completed.");
